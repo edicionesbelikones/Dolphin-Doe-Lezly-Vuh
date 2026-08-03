@@ -6,19 +6,25 @@
   <title>Dolphin Doe & Lezly Vuh</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <!-- FUENTES PSICODÉLICAS ACTIVADAS -->
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=VT323&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #030308;
-      --paper: rgba(15, 10, 25, 0.4);
-      --ink: #00f0ff;
-      --muted: #d0e0f0;
-      --neon-cyan: #00f0ff;
-      --neon-magenta: #ff0055;
-      --neon-yellow: #fffe00;
-      --line: rgba(0, 240, 255, 0.4);
-      --glow-cyan: 0 0 15px rgba(0, 240, 255, 0.7);
-      --glow-pink: 0 0 15px rgba(255, 0, 85, 0.7);
+      --bg: #1a0b1c;
+      --paper: rgba(35, 15, 38, 0.6);
+      --ink: #f4b728;
+      --muted: #fce8cd;
+      
+      /* Nueva Paleta Psicodélica 70s */
+      --retro-pink: #e884a9;
+      --retro-yellow: #f4b728;
+      --retro-orange: #e27329;
+      --retro-mint: #78c4af;
+      
+      --line: rgba(232, 132, 169, 0.4);
+      --glow-pink: 0 0 15px rgba(232, 132, 169, 0.7);
+      --glow-yellow: 0 0 15px rgba(244, 183, 40, 0.7);
+      --glow-orange: 0 0 15px rgba(226, 115, 41, 0.7);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -32,9 +38,10 @@
       background-repeat: no-repeat;
       background-attachment: fixed;
       color: var(--ink);
-      font-family: 'Share Tech Mono', monospace;
+      font-family: 'VT323', monospace;
       font-weight: 400;
-      line-height: 1.6;
+      font-size: 1.2rem;
+      line-height: 1.4;
       overflow-x: hidden;
       width: 100%;
       position: relative;
@@ -44,7 +51,7 @@
       content: "";
       position: fixed;
       inset: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(255, 0, 85, 0.15), rgba(0, 240, 255, 0.1) 50%, transparent 80%);
+      background: radial-gradient(circle at 50% 50%, rgba(232, 132, 169, 0.15), rgba(244, 183, 40, 0.1) 50%, transparent 80%);
       pointer-events: none;
       z-index: -1;
     }
@@ -68,15 +75,15 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* Imagen de portada con efectos Harris y estática */
+    /* Imagen de portada con efectos vintage */
     .portrait-container {
       position: relative;
       width: 160px;
       height: 160px;
       margin: 0 auto 2rem;
       border-radius: 50%;
-      border: 2px solid var(--neon-cyan);
-      box-shadow: var(--glow-cyan);
+      border: 3px solid var(--retro-pink);
+      box-shadow: var(--glow-pink);
       overflow: hidden;
     }
 
@@ -97,7 +104,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(255, 0, 85, 0.3), rgba(0, 255, 100, 0.3), rgba(0, 240, 255, 0.3));
+      background: linear-gradient(90deg, rgba(232, 132, 169, 0.4), rgba(244, 183, 40, 0.4), rgba(226, 115, 41, 0.4));
       mix-blend-mode: color-dodge;
       pointer-events: none;
       z-index: 3;
@@ -110,7 +117,7 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      filter: grayscale(100%) contrast(1.2) hue-rotate(180deg);
+      filter: grayscale(80%) contrast(1.2);
       transition: filter 0.4s ease, opacity 0.4s ease;
       position: relative;
       z-index: 1;
@@ -122,40 +129,40 @@
       left: 0;
       opacity: 0;
       z-index: 1;
-      filter: contrast(1.3) saturate(1.8) drop-shadow(0 0 5px var(--neon-magenta));
+      filter: contrast(1.3) saturate(1.8) drop-shadow(0 0 5px var(--retro-pink));
     }
 
     .portrait-container:hover .portrait { opacity: 0; }
     .portrait-container:hover .portrait-alt { opacity: 1; }
 
-    /* Nombre con efecto glitch Harris */
+    /* Nombre con tipografía psicodélica y efecto glitch retro */
     h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-weight: 900;
-      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-family: 'Rubik Glitch', cursive;
+      font-weight: 400;
+      font-size: clamp(2.2rem, 7vw, 3.8rem);
       letter-spacing: 0.08em;
-      color: #fff;
+      color: var(--retro-yellow);
       text-transform: uppercase;
       margin-bottom: 0.2rem;
       animation: harrisGlitch 0.35s infinite;
     }
 
     .alias {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 1.2rem;
-      color: var(--neon-yellow);
+      font-family: 'VT323', monospace;
+      font-size: 1.6rem;
+      color: var(--retro-mint);
       letter-spacing: 0.1em;
       margin-bottom: 1.5rem;
-      text-shadow: 0 0 8px rgba(255, 254, 0, 0.5);
+      text-shadow: 0 0 8px rgba(120, 196, 175, 0.5);
     }
 
     .tagline {
-      font-size: 0.95rem;
+      font-size: 1.2rem;
       color: #fff;
       max-width: 520px;
       margin: 0 auto;
       letter-spacing: 0.05em;
-      border-left: 3px solid var(--neon-magenta);
+      border-left: 3px solid var(--retro-orange);
       padding-left: 1rem;
       text-align: left;
       background: rgba(255, 255, 255, 0.1);
@@ -175,14 +182,14 @@
     }
 
     nav a {
-      color: var(--neon-cyan);
+      color: var(--retro-yellow);
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 1.1rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       transition: all 0.3s ease;
       padding: 0.4rem 0.8rem;
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--line);
       backdrop-filter: blur(4px);
       border-radius: 20px;
@@ -190,8 +197,8 @@
 
     nav a:hover, nav a:active {
       color: #000;
-      background: var(--neon-cyan);
-      box-shadow: var(--glow-cyan);
+      background: var(--retro-pink);
+      box-shadow: var(--glow-pink);
       font-weight: bold;
     }
 
@@ -202,11 +209,11 @@
     }
 
     section h2 {
-      font-family: 'Orbitron', sans-serif;
-      font-weight: 700;
-      font-size: 1.8rem;
+      font-family: 'Rubik Glitch', cursive;
+      font-weight: 400;
+      font-size: 2.2rem;
       letter-spacing: 0.1em;
-      color: var(--neon-magenta);
+      color: var(--retro-pink);
       margin-bottom: 2rem;
       text-align: center;
       text-transform: uppercase;
@@ -215,12 +222,12 @@
 
     section h2::before {
       content: "// ";
-      color: var(--neon-yellow);
+      color: var(--retro-orange);
     }
 
     .about-text {
-      font-size: 1.1rem;
-      line-height: 1.8;
+      font-size: 1.3rem;
+      line-height: 1.6;
       color: #ffffff;
       max-width: 640px;
       margin: 0 auto;
@@ -249,17 +256,17 @@
       width: 120px;
       height: 120px;
       border-radius: 50%;
-      background: radial-gradient(circle, var(--neon-magenta) 0%, rgba(0,0,0,0.85) 70%);
-      border: 2px solid var(--neon-yellow);
-      box-shadow: var(--glow-pink), inset 0 0 20px var(--neon-cyan);
+      background: radial-gradient(circle, var(--retro-orange) 0%, rgba(20, 5, 25, 0.9) 70%);
+      border: 2px solid var(--retro-yellow);
+      box-shadow: var(--glow-orange), inset 0 0 20px var(--retro-pink);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 0.75rem;
+      font-family: 'Rubik Glitch', cursive;
+      font-size: 0.9rem;
       color: #fff;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.05em;
       z-index: 5;
       pointer-events: none;
       animation: pulseCenter 2s ease-in-out infinite alternate;
@@ -270,7 +277,7 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      border: 1px dashed rgba(0, 240, 255, 0.25);
+      border: 1px dashed rgba(232, 132, 169, 0.3);
       animation: spinWheel 50s linear infinite;
     }
 
@@ -278,7 +285,7 @@
       animation-play-state: paused;
     }
 
-    /* 8 Botones alineados matemáticamente a 45 grados de distancia cada uno */
+    /* 8 Botones alineados matemáticamente a 45 grados */
     .wheel-item {
       position: absolute;
       top: 50%;
@@ -290,7 +297,6 @@
       z-index: 10;
     }
 
-    /* Cálculo exacto de ángulo y distancia para cada uno de los 8 círculos */
     .wheel-item:nth-child(1) { transform: rotate(0deg) translate(220px) rotate(0deg); }
     .wheel-item:nth-child(2) { transform: rotate(45deg) translate(220px) rotate(-45deg); }
     .wheel-item:nth-child(3) { transform: rotate(90deg) translate(220px) rotate(-90deg); }
@@ -300,7 +306,7 @@
     .wheel-item:nth-child(7) { transform: rotate(270deg) translate(220px) rotate(-270deg); }
     .wheel-item:nth-child(8) { transform: rotate(315deg) translate(220px) rotate(-315deg); }
 
-    /* ESTILO DE CADA BOTÓN CIRCULAR */
+    /* ESTILO DE CADA BOTÓN CIRCULAR CON COLORES RETRO */
     .harris-circle-btn {
       display: flex;
       flex-direction: column;
@@ -309,15 +315,15 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background: rgba(5, 5, 15, 0.9);
-      border: 2px solid var(--neon-cyan);
+      background: rgba(25, 10, 28, 0.95);
+      border: 2px solid var(--retro-pink);
       color: #fff;
       text-decoration: none;
       text-align: center;
       padding: 0.5rem;
       position: relative;
       overflow: hidden;
-      box-shadow: var(--glow-cyan);
+      box-shadow: var(--glow-pink);
       backdrop-filter: blur(4px);
       transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
       animation: counterSpin 50s linear infinite;
@@ -343,7 +349,7 @@
       position: absolute;
       inset: 0;
       border-radius: 50%;
-      background: linear-gradient(135deg, rgba(255, 0, 85, 0.4), rgba(0, 255, 100, 0.4), rgba(0, 240, 255, 0.4));
+      background: linear-gradient(135deg, rgba(232, 132, 169, 0.4), rgba(244, 183, 40, 0.4), rgba(120, 196, 175, 0.4));
       mix-blend-mode: color-dodge;
       opacity: 0;
       pointer-events: none;
@@ -353,8 +359,8 @@
 
     .harris-circle-btn:hover {
       transform: scale(1.2);
-      border-color: var(--neon-yellow);
-      box-shadow: 0 0 20px var(--neon-yellow), var(--glow-pink);
+      border-color: var(--retro-yellow);
+      box-shadow: 0 0 20px var(--retro-yellow), var(--glow-orange);
       z-index: 20;
     }
 
@@ -364,9 +370,9 @@
     }
 
     .harris-circle-btn h3 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 0.65rem;
-      font-weight: 700;
+      font-family: 'Rubik Glitch', cursive;
+      font-size: 0.8rem;
+      font-weight: 400;
       color: #fff;
       line-height: 1.1;
       z-index: 3;
@@ -375,15 +381,16 @@
     }
 
     .harris-circle-btn .type {
-      font-size: 0.55rem;
-      color: var(--neon-yellow);
+      font-family: 'VT323', monospace;
+      font-size: 0.8rem;
+      color: var(--retro-yellow);
       z-index: 3;
       text-shadow: 0 0 4px #000;
     }
 
     .harris-circle-btn .read-icon {
-      font-size: 0.6rem;
-      color: var(--neon-cyan);
+      font-size: 0.8rem;
+      color: var(--retro-pink);
       margin-top: 2px;
       z-index: 3;
       font-weight: bold;
@@ -391,7 +398,7 @@
 
     .harris-circle-btn:hover h3 {
       animation: harrisGlitch 0.2s infinite;
-      color: var(--neon-cyan);
+      color: var(--retro-yellow);
     }
 
     /* ANIMACIONES */
@@ -406,8 +413,8 @@
     }
 
     @keyframes pulseCenter {
-      0% { transform: scale(0.95); box-shadow: var(--glow-pink); }
-      100% { transform: scale(1.08); box-shadow: 0 0 25px var(--neon-cyan), 0 0 10px var(--neon-yellow); }
+      0% { transform: scale(0.95); box-shadow: var(--glow-orange); }
+      100% { transform: scale(1.08); box-shadow: 0 0 25px var(--retro-pink), 0 0 10px var(--retro-yellow); }
     }
 
     @keyframes staticNoise {
@@ -420,15 +427,15 @@
     }
 
     @keyframes harrisGlitch {
-      0% { text-shadow: 2px 0 0 #ff0055, -2px 0 0 #00f0ff, 0 1px 0 #00ff66; }
-      50% { text-shadow: -2px -1px 0 #ff0055, 2px 1px 0 #00f0ff, -1px 1px 0 #00ff66; }
-      100% { text-shadow: 2px 0 0 #ff0055, -2px 0 0 #00f0ff, 0 1px 0 #00ff66; }
+      0% { text-shadow: 2px 0 0 #e884a9, -2px 0 0 #f4b728, 0 1px 0 #78c4af; }
+      50% { text-shadow: -2px -1px 0 #e27329, 2px 1px 0 #e884a9, -1px 1px 0 #f4b728; }
+      100% { text-shadow: 2px 0 0 #e884a9, -2px 0 0 #f4b728, 0 1px 0 #78c4af; }
     }
 
     @keyframes harrisShift {
       0% { transform: translateX(-3px) scale(1.02); filter: hue-rotate(0deg); }
-      50% { transform: translateX(3px) scale(1.28); filter: hue-rotate(120deg); }
-      100% { transform: translateX(-1px) scale(1); filter: hue-rotate(240deg); }
+      50% { transform: translateX(3px) scale(1.28); filter: hue-rotate(90deg); }
+      100% { transform: translateX(-1px) scale(1); filter: hue-rotate(180deg); }
     }
 
     /* OTROS COMPONENTES */
@@ -443,7 +450,7 @@
       overflow: hidden;
       max-width: 100%;
       border: 1px solid var(--line);
-      box-shadow: var(--glow-cyan);
+      box-shadow: var(--glow-pink);
       cursor: pointer;
       border-radius: 8px;
     }
@@ -462,7 +469,7 @@
       width: 100%; height: 100%;
       object-fit: cover;
       opacity: 0; z-index: 1;
-      filter: contrast(1.5) brightness(0.7) saturate(2) drop-shadow(0 0 15px rgba(255, 0, 0, 0.8));
+      filter: contrast(1.5) brightness(0.7) saturate(2) drop-shadow(0 0 15px rgba(226, 115, 41, 0.8));
     }
 
     .gt-image-container:hover .gt-img-normal { opacity: 0; }
@@ -473,7 +480,7 @@
       position: fixed;
       inset: 0;
       z-index: 2000;
-      background: rgba(5, 5, 10, 0.9);
+      background: rgba(15, 5, 20, 0.92);
       backdrop-filter: blur(8px);
       align-items: center;
       justify-content: center;
@@ -487,8 +494,8 @@
       width: 100%;
       max-width: 800px;
       aspect-ratio: 16 / 9;
-      border: 2px solid var(--neon-cyan);
-      box-shadow: var(--glow-cyan);
+      border: 2px solid var(--retro-pink);
+      box-shadow: var(--glow-pink);
       background: #000;
     }
 
@@ -499,12 +506,11 @@
       top: -40px; right: 0;
       background: transparent;
       border: none;
-      color: var(--neon-magenta);
-      font-family: 'Orbitron', sans-serif;
+      color: var(--retro-orange);
+      font-family: 'Rubik Glitch', cursive;
       font-size: 1.5rem;
-      font-weight: 700;
       cursor: pointer;
-      text-shadow: var(--glow-pink);
+      text-shadow: var(--glow-orange);
     }
 
     .contact-block {
@@ -517,19 +523,19 @@
     }
 
     .contact-email {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 1.25rem;
-      color: var(--neon-cyan);
+      font-family: 'VT323', monospace;
+      font-size: 1.5rem;
+      color: var(--retro-yellow);
       text-decoration: none;
       word-break: break-word;
-      border-bottom: 1px solid var(--neon-cyan);
+      border-bottom: 1px solid var(--retro-yellow);
       transition: all 0.3s ease;
     }
 
     .contact-email:hover {
-      color: var(--neon-yellow);
-      border-color: var(--neon-yellow);
-      text-shadow: 0 0 8px var(--neon-yellow);
+      color: var(--retro-pink);
+      border-color: var(--retro-pink);
+      text-shadow: 0 0 8px var(--retro-pink);
     }
 
     .comment-form {
@@ -547,10 +553,10 @@
 
     .comment-form label {
       display: block;
-      font-size: 0.8rem;
+      font-size: 1.1rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--neon-yellow);
+      color: var(--retro-yellow);
       margin-bottom: 0.4rem;
     }
 
@@ -559,8 +565,8 @@
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--line);
       color: #fff;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 0.95rem;
+      font-family: 'VT323', monospace;
+      font-size: 1.2rem;
       padding: 0.8rem 1rem;
       outline: none;
       border-radius: 6px;
@@ -568,12 +574,11 @@
 
     .comment-form button {
       align-self: flex-start;
-      background: var(--neon-cyan);
+      background: var(--retro-pink);
       border: none;
       color: #000;
-      font-family: 'Orbitron', sans-serif;
-      font-weight: 700;
-      font-size: 0.85rem;
+      font-family: 'Rubik Glitch', cursive;
+      font-size: 1.1rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       padding: 0.8rem 2rem;
@@ -583,9 +588,9 @@
     }
 
     .comment-form button:hover {
-      background: var(--neon-magenta);
-      color: #fff;
-      box-shadow: var(--glow-pink);
+      background: var(--retro-yellow);
+      color: #000;
+      box-shadow: var(--glow-yellow);
     }
 
     .socials {
@@ -601,22 +606,22 @@
     .socials a {
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.8rem;
+      font-size: 1.1rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       transition: color 0.3s ease;
     }
 
     .socials a:hover {
-      color: var(--neon-cyan);
-      text-shadow: var(--glow-cyan);
+      color: var(--retro-pink);
+      text-shadow: var(--glow-pink);
     }
 
     footer {
       padding: 2.5rem 0 3.5rem;
       text-align: center;
       border-top: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.03);
       backdrop-filter: blur(6px);
     }
 
@@ -628,19 +633,19 @@
       height: 45px;
       border-radius: 50%;
       background: var(--paper);
-      border: 1px solid var(--neon-magenta);
-      color: var(--neon-magenta);
+      border: 1px solid var(--retro-orange);
+      color: var(--retro-orange);
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
       z-index: 1001;
-      box-shadow: var(--glow-pink);
+      box-shadow: var(--glow-orange);
       transition: all 0.3s ease;
     }
 
     .btn-circular:hover {
-      background: var(--neon-magenta);
+      background: var(--retro-orange);
       color: #fff;
       transform: scale(1.15);
     }
@@ -670,13 +675,13 @@
       .wheel-center {
         width: 80px;
         height: 80px;
-        font-size: 0.55rem;
+        font-size: 0.65rem;
       }
       .harris-circle-btn h3 {
-        font-size: 0.45rem;
+        font-size: 0.6rem;
       }
       .harris-circle-btn .type {
-        font-size: 0.4rem;
+        font-size: 0.6rem;
       }
     }
   </style>
