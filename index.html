@@ -57,6 +57,17 @@
       overflow-x: hidden;
       width: 100%;
       position: relative;
+      
+      /* SOMBRA DE CONTORNO NEGRO (OUTLINE) EN TODA LA TIPOGRAFÍA */
+      text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000,
+        -2px  0px 0 #000,
+         2px  0px 0 #000,
+         0px -2px 0 #000,
+         0px  2px 0 #000;
     }
 
     /* OVERLAY CRT / VHS SOBRIO */
@@ -109,7 +120,9 @@
       left: 2rem;
       color: var(--horror-accent);
       font-size: 0.8rem;
-      text-shadow: var(--glow-accent);
+      text-shadow: 
+        -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000,
+        var(--glow-accent);
       animation: blinkRec 1.2s infinite;
       letter-spacing: 0.12em;
     }
@@ -202,7 +215,6 @@
       color: var(--ink-heading);
       text-transform: uppercase;
       margin-bottom: 1rem;
-      text-shadow: var(--vhs-shadow);
       animation: horrorGlitch 0.2s infinite;
       line-height: 1.4;
     }
@@ -212,7 +224,9 @@
       color: var(--horror-accent);
       letter-spacing: 0.1em;
       margin-bottom: 2rem;
-      text-shadow: var(--glow-accent);
+      text-shadow: 
+        -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000,
+        var(--glow-accent);
     }
 
     .tagline {
@@ -276,7 +290,9 @@
       margin-bottom: 2.5rem;
       text-align: center;
       text-transform: uppercase;
-      text-shadow: var(--glow-accent);
+      text-shadow: 
+        -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000,
+        var(--glow-accent);
       line-height: 1.5;
     }
 
@@ -407,6 +423,8 @@
       cursor: pointer;
       border-radius: 2px;
       transition: all 0.3s ease;
+      text-shadow: 
+        -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     }
 
     .comment-form input[type="file"]::file-selector-button:hover {
@@ -474,9 +492,21 @@
     }
 
     @keyframes horrorGlitch {
-      0% { text-shadow: 2px 0 0 var(--horror-accent), -2px 0 0 var(--horror-green); }
-      50% { text-shadow: -2px 0 0 var(--horror-accent), 1px 0 0 var(--horror-green); }
-      100% { text-shadow: 2px 0 0 var(--horror-accent), -2px 0 0 var(--horror-green); }
+      0% { 
+        text-shadow: 
+          -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000,
+          2px 0 0 var(--horror-accent), -2px 0 0 var(--horror-green); 
+      }
+      50% { 
+        text-shadow: 
+          -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000,
+          -2px 0 0 var(--horror-accent), 1px 0 0 var(--horror-green); 
+      }
+      100% { 
+        text-shadow: 
+          -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000,
+          2px 0 0 var(--horror-accent), -2px 0 0 var(--horror-green); 
+      }
     }
 
     /* OTROS COMPONENTES */
@@ -553,7 +583,9 @@
 
     .close-video-btn:hover {
       color: var(--horror-accent);
-      text-shadow: var(--glow-accent);
+      text-shadow: 
+        -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000,
+        var(--glow-accent);
     }
 
     .contact-block {
@@ -577,7 +609,9 @@
 
     .contact-email:hover {
       color: var(--ink-heading);
-      text-shadow: var(--glow-accent);
+      text-shadow: 
+        -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000,
+        var(--glow-accent);
     }
 
     .socials {
@@ -665,19 +699,19 @@
   <header>
     <div class="container">
       <div class="dual-portraits-wrapper">
-        <!-- FOTO 1 (a.jpg) -->
-        <a href="#" target="_blank" class="portrait-link">
-          <div class="portrait-container-corroded">
-            <img src="a.jpg" alt="Foto principal A" class="portrait">
-            <img src="n.png" alt="Foto alt A" class="portrait portrait-alt">
-          </div>
-        </a>
-
-        <!-- FOTO 2 (b.jpg) -->
+        <!-- FOTO 1 (b.jpg intercambiada) -->
         <a href="#" target="_blank" class="portrait-link">
           <div class="portrait-container-corroded">
             <img src="b.jpg" alt="Foto principal B" class="portrait">
             <img src="n_2.png" alt="Foto alt B" class="portrait portrait-alt">
+          </div>
+        </a>
+
+        <!-- FOTO 2 (a.jpg intercambiada) -->
+        <a href="#" target="_blank" class="portrait-link">
+          <div class="portrait-container-corroded">
+            <img src="a.jpg" alt="Foto principal A" class="portrait">
+            <img src="n.png" alt="Foto alt A" class="portrait portrait-alt">
           </div>
         </a>
       </div>
@@ -686,7 +720,7 @@
       <p class="alias">// XXXXX XXXXXXX</p>
       <p class="tagline">XXXXX XXXX XX XXXXXX XXXXXXXXXXX O XXXX DEL XXXXXXXX.</p>
       <nav>
-        <a href="#sobre">XXXXX XX</a>
+        <a href="#sobre">SOBRE NOSOTROS</a>
         <a href="#obras">XXXXX</a>
         <a href="#comentarios">XXXXXXXXXXX</a>
         <a href="#contacto">XXXXXXXX</a>
@@ -697,9 +731,9 @@
   <main>
     <section id="sobre">
       <div class="container">
-        <h2>XXXXX XX</h2>
+        <h2>SOBRE NOSOTROS</h2>
         <div class="about-text">
-          <p>XXXXXX XXXX XX XXXXXXXXX O XXXXXXXXXX XXXXXXXX.</p>
+          <p><strong>Dolphin Doe & Lezly Vuh</strong> (San Fierro, 19∞). Nacieron cerca de la playa. Son Cazadores de críptidos & openmics. Sobrevivieron al fin del mundo conociéndose por ahí del 2013 viendo creepypastas de Youtube en el ciber de por la acapulqueña. Desde 2018 han contribuido a la conservación & aumento de las cadenas de correos electrónicos malditos, lost media & otras invocaciones finiharias, juegan baraja española & siempre han tenido suerte en los tazos. En 2020, durante la pandemia, se reencontraron en el taller virtual del poeta Sánchez Olivera. Desde entonces se cuelan a tu casa, fiestas privadas & eventos culturales con videocámara en mano. Actualmente tienen más o menos 24 años & siguen en las andadas.</p>
         </div>
       </div>
     </section>
