@@ -6,7 +6,8 @@
   <title>Dolphin-Doe & Lezly-Vuh</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&family=Rubik+Glitch&family=VT323&display=swap" rel="stylesheet">
+  <!-- Importamos la fuente estilo pixel art "Press Start 2P" y "VT323" -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #07090e;
@@ -29,9 +30,18 @@
       --glow-accent: 0 0 10px rgba(156, 176, 201, 0.35);
       --glow-green: 0 0 12px rgba(63, 185, 80, 0.35), inset 0 0 8px rgba(63, 185, 80, 0.2);
       --vhs-shadow: 2px 0 0 rgba(156, 176, 201, 0.4), -2px 0 0 rgba(63, 185, 80, 0.4);
+
+      /* FUENTE PIXEL ART APLICADA GLOBALMENTE */
+      --main-font: 'Press Start 2P', monospace;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+      font-family: var(--main-font) !important; 
+    }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -42,10 +52,8 @@
       background-repeat: no-repeat;
       background-attachment: fixed;
       color: var(--ink);
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      font-weight: 300;
-      font-size: 1rem;
-      line-height: 1.6;
+      font-size: 0.75rem; /* Ajustado para legibilidad adecuada con fuente Pixel */
+      line-height: 1.8;
       overflow-x: hidden;
       width: 100%;
       position: relative;
@@ -100,8 +108,7 @@
       top: 1.5rem;
       left: 2rem;
       color: var(--horror-accent);
-      font-family: 'VT323', monospace;
-      font-size: 1rem;
+      font-size: 0.8rem;
       text-shadow: var(--glow-accent);
       animation: blinkRec 1.2s infinite;
       letter-spacing: 0.12em;
@@ -190,41 +197,39 @@
 
     /* NOMENCLATURA PRINCIPAL Y TIPOGRAFÍA DE NOMBRES */
     h1 {
-      font-family: 'Rubik Glitch', cursive;
-      font-weight: 400;
-      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      font-size: clamp(1.2rem, 3.5vw, 2rem);
       letter-spacing: 0.05em;
       color: var(--ink-heading);
       text-transform: uppercase;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
       text-shadow: var(--vhs-shadow);
       animation: horrorGlitch 0.2s infinite;
+      line-height: 1.4;
     }
 
     .alias {
-      font-family: 'VT323', monospace;
-      font-size: 1.4rem;
+      font-size: 0.9rem;
       color: var(--horror-accent);
-      letter-spacing: 0.15em;
+      letter-spacing: 0.1em;
       margin-bottom: 2rem;
       text-shadow: var(--glow-accent);
     }
 
     .tagline {
-      font-family: 'Cinzel', serif;
-      font-size: 0.95rem;
+      font-size: 0.7rem;
       color: var(--ink);
-      max-width: 580px;
+      max-width: 650px;
       margin: 0 auto;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      border-left: 2px solid var(--horror-accent);
-      padding: 0.75rem 0 0.75rem 1.25rem;
+      border-left: 3px solid var(--horror-accent);
+      padding: 1rem;
       text-align: left;
       background: var(--paper);
       backdrop-filter: blur(12px);
       border-radius: 0 4px 4px 0;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      line-height: 1.8;
     }
 
     nav {
@@ -240,11 +245,11 @@
     nav a {
       color: var(--ink);
       text-decoration: none;
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       transition: all 0.3s ease;
-      padding: 0.5rem 1.2rem;
+      padding: 0.6rem 1rem;
       background: rgba(12, 16, 22, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(8px);
@@ -265,26 +270,25 @@
     }
 
     section h2 {
-      font-family: 'Rubik Glitch', cursive;
-      font-weight: 400;
-      font-size: 2rem;
+      font-size: 1.2rem;
       letter-spacing: 0.08em;
       color: var(--horror-accent);
       margin-bottom: 2.5rem;
       text-align: center;
       text-transform: uppercase;
       text-shadow: var(--glow-accent);
+      line-height: 1.5;
     }
 
     section h2::before {
       content: "✦ ";
-      font-size: 1.2rem;
+      font-size: 1rem;
       opacity: 0.8;
     }
 
     .about-text {
-      font-size: 1.05rem;
-      line-height: 1.8;
+      font-size: 0.75rem;
+      line-height: 2;
       color: var(--ink);
       max-width: 680px;
       margin: 0 auto;
@@ -360,12 +364,11 @@
 
     .comment-form label {
       display: block;
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--horror-accent);
-      margin-bottom: 0.5rem;
-      font-weight: 500;
+      margin-bottom: 0.8rem;
     }
 
     .comment-form input, .comment-form textarea {
@@ -373,8 +376,7 @@
       background: rgba(5, 8, 12, 0.8);
       border: 1px solid rgba(255, 255, 255, 0.1);
       color: var(--ink-heading);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
+      font-size: 0.75rem;
       padding: 0.8rem 1rem;
       outline: none;
       border-radius: 3px;
@@ -391,14 +393,14 @@
       cursor: pointer;
       background: rgba(5, 8, 12, 0.5);
       color: var(--muted);
+      font-size: 0.6rem;
     }
 
     .comment-form input[type="file"]::file-selector-button {
       background: var(--horror-dark-bg);
       border: 1px solid var(--horror-accent);
       color: var(--ink-heading);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.6rem;
       letter-spacing: 0.05em;
       padding: 0.4rem 0.9rem;
       margin-right: 1rem;
@@ -422,11 +424,10 @@
       background: rgba(156, 176, 201, 0.1);
       border: 1px solid var(--horror-accent);
       color: var(--ink-heading);
-      font-family: 'Rubik Glitch', cursive;
-      font-size: 1.1rem;
+      font-size: 0.75rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 0.8rem 2.2rem;
+      padding: 0.8rem 1.8rem;
       cursor: pointer;
       border-radius: 2px;
       transition: all 0.3s ease;
@@ -545,8 +546,7 @@
       background: transparent;
       border: none;
       color: var(--ink-heading);
-      font-family: 'Rubik Glitch', cursive;
-      font-size: 1.2rem;
+      font-size: 0.75rem;
       cursor: pointer;
       transition: color 0.3s ease;
     }
@@ -567,8 +567,7 @@
     }
 
     .contact-email {
-      font-family: 'VT323', monospace;
-      font-size: 1.8rem;
+      font-size: 0.85rem;
       color: var(--horror-accent);
       text-decoration: none;
       word-break: break-word;
@@ -594,7 +593,7 @@
     .socials a {
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.65rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       transition: color 0.3s ease;
@@ -610,7 +609,7 @@
       border-top: 1px solid var(--line);
       background: rgba(5, 8, 12, 0.9);
       backdrop-filter: blur(12px);
-      font-size: 0.85rem;
+      font-size: 0.65rem;
       color: var(--muted);
       letter-spacing: 0.05em;
     }
@@ -646,7 +645,6 @@
   </style>
 </head>
 <body>
-
   <!-- FILTROS SVG PARA EFECTO HARRIS-SHUTTER (DESPLAZAMIENTO RGB) -->
   <svg style="display: none;">
     <defs>
@@ -666,7 +664,6 @@
 
   <header>
     <div class="container">
-      
       <div class="dual-portraits-wrapper">
         <!-- FOTO 1 -->
         <a href="#" target="_blank" class="portrait-link">
@@ -715,36 +712,28 @@
           <a href="#" class="floating-vhs-link" target="_blank">
             <img src="yt.png" alt="XXXXX" class="vhs-img">
           </a>
-
           <a href="#" class="floating-vhs-link" target="_blank">
             <img src="yt.png" alt="XXXXX" class="vhs-img">
           </a>
-
           <a href="#" class="floating-vhs-link" target="_blank">
             <img src="yt.png" alt="XXXXX" class="vhs-img">
           </a>
-
           <a href="#" class="floating-vhs-link" target="_blank">
             <img src="yt.png" alt="XXXXX" class="vhs-img">
           </a>
-
           <a href="#" class="floating-vhs-link" target="_blank">
             <img src="yt.png" alt="XXXXX" class="vhs-img">
           </a>
-
           <a href="#" class="floating-vhs-link" target="_blank">
             <img src="yt.png" alt="XXXXX" class="vhs-img">
           </a>
-
           <a href="#" class="floating-vhs-link" target="_blank">
             <img src="yt.png" alt="XXXXX" class="vhs-img">
           </a>
-
           <a href="#" class="floating-vhs-link" target="_blank">
             <img src="yt.png" alt="XXXXX" class="vhs-img">
           </a>
         </div>
-
       </div>
     </section>
 
@@ -761,10 +750,12 @@
             <label for="nombre">XXXXXX</label>
             <input type="text" id="nombre" name="nombre" required placeholder="TU XXXXXX">
           </div>
+
           <div>
             <label for="email">XXXXXX XXXXXXXXXXX</label>
             <input type="email" id="email" name="email" required placeholder="tu@correo.com">
           </div>
+
           <div>
             <label for="mensaje">XXXXXXXXXX</label>
             <textarea id="mensaje" name="mensaje" required placeholder="XXXXXX AQUÍ TU XXXXXXXXXX..."></textarea>
