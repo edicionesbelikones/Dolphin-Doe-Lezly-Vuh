@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dolphin-Doe & Lezly-Vuh</title>
+  <title>XXXXX XXX & XXXXX XXX</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=VT323&display=swap" rel="stylesheet">
@@ -295,100 +295,49 @@
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.9), inset 0 0 15px rgba(0, 85, 255, 0.15);
     }
 
-    /* --- CINTAS VHS GIRATORIAS (ROTACIÓN EN CÍRCULO EN 360°) --- */
+    /* --- IMÁGENES GIRATORIAS (YT.PNG) --- */
     .vhs-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 2rem;
       max-width: 900px;
       margin: 0 auto;
-      perspective: 1000px; /* Profundidad para la rotación */
+      perspective: 1000px;
     }
 
-    .vhs-tape {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 140px;
-      padding: 1rem;
-      background: linear-gradient(135deg, #111 0%, #050505 100%);
-      border: 2px solid var(--horror-blue);
-      border-left: 6px solid var(--horror-dark-blue);
-      color: var(--horror-white);
+    .rotating-item-link {
+      display: inline-block;
       text-decoration: none;
-      box-shadow: var(--glow-blue), 0 5px 15px rgba(0,0,0,0.8);
-      position: relative;
-      overflow: hidden;
-      border-radius: 3px;
-      
-      /* Animación de rotación continua en círculo */
+      text-align: center;
+      /* Animación de rotación continua en 360° */
       animation: vhsRotate 8s linear infinite;
-      transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
     }
 
-    /* Variación en velocidad y dirección para un aspecto caótico */
-    .vhs-tape:nth-child(2n) { animation-duration: 10s; animation-direction: reverse; }
-    .vhs-tape:nth-child(3n) { animation-duration: 6.5s; }
-    .vhs-tape:nth-child(4n) { animation-duration: 12s; animation-direction: reverse; }
+    .rotating-item-link:nth-child(2n) { animation-duration: 10s; animation-direction: reverse; }
+    .rotating-item-link:nth-child(3n) { animation-duration: 6.5s; }
+    .rotating-item-link:nth-child(4n) { animation-duration: 12s; animation-direction: reverse; }
 
-    .vhs-tape::before {
-      content: "";
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 40px;
-      height: 12px;
-      background: rgba(0, 85, 255, 0.2);
-      border: 1px solid var(--horror-blue);
-      border-radius: 2px;
+    .rotating-item-link:hover {
+      animation-play-state: paused; /* Se detiene al pasar el mouse para hacer click */
     }
 
-    .vhs-tape:hover {
-      animation-play-state: paused; /* Se pausa al pasar el cursor para poder hacer click */
+    .rotating-img {
+      width: 100%;
+      max-width: 240px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border: 2px solid var(--horror-blue);
+      border-radius: 4px;
+      box-shadow: var(--glow-blue), 0 5px 15px rgba(0,0,0,0.8);
+      transition: all 0.3s ease;
+    }
+
+    .rotating-item-link:hover .rotating-img {
       border-color: var(--horror-green);
-      box-shadow: var(--glow-green), 0 8px 20px rgba(0,255,102,0.2);
-      background: #080c18;
-    }
-
-    .vhs-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.85rem;
-      color: var(--horror-blue);
-      letter-spacing: 0.1em;
-      border-bottom: 1px dashed rgba(0, 85, 255, 0.3);
-      padding-bottom: 0.3rem;
-    }
-
-    .vhs-tape:hover .vhs-header {
-      color: var(--horror-green);
-      border-color: rgba(0, 255, 106, 0.3);
-    }
-
-    .vhs-title {
-      font-family: 'Rubik Glitch', cursive;
-      font-size: 1.3rem;
-      color: var(--horror-white);
-      margin: 0.5rem 0;
-    }
-
-    .vhs-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.9rem;
-      color: #888;
-    }
-
-    .vhs-btn {
-      color: var(--horror-blue);
-      font-weight: bold;
-      letter-spacing: 0.1em;
-    }
-
-    .vhs-tape:hover .vhs-btn {
-      color: var(--horror-green);
+      box-shadow: var(--glow-green), 0 8px 20px rgba(0,255,102,0.3);
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 10px var(--horror-green));
     }
 
     /* FORMULARIO */
@@ -724,100 +673,36 @@
         <h2>XXXXXXXX XXX</h2>
         
         <div class="vhs-grid">
-          <a href="#" class="vhs-tape" target="_blank">
-            <div class="vhs-header">
-              <span>XXXXXXXX 01</span>
-              <span>[PDF]</span>
-            </div>
-            <h3 class="vhs-title">XXXX 1</h3>
-            <div class="vhs-footer">
-              <span>NTSC / STEREO</span>
-              <span class="vhs-btn">XXXXX &rarr;</span>
-            </div>
+          <a href="#" class="rotating-item-link" target="_blank">
+            <img src="yt.png" alt="XXXXX" class="rotating-img">
           </a>
 
-          <a href="#" class="vhs-tape" target="_blank">
-            <div class="vhs-header">
-              <span>XXXXXXXX 02</span>
-              <span>[PDF]</span>
-            </div>
-            <h3 class="vhs-title">XXXX 2</h3>
-            <div class="vhs-footer">
-              <span>NTSC / STEREO</span>
-              <span class="vhs-btn">XXXXX &rarr;</span>
-            </div>
+          <a href="#" class="rotating-item-link" target="_blank">
+            <img src="yt.png" alt="XXXXX" class="rotating-img">
           </a>
 
-          <a href="#" class="vhs-tape" target="_blank">
-            <div class="vhs-header">
-              <span>XXXXXXXX 03</span>
-              <span>[PDF]</span>
-            </div>
-            <h3 class="vhs-title">XXXX 3</h3>
-            <div class="vhs-footer">
-              <span>NTSC / STEREO</span>
-              <span class="vhs-btn">XXXXX &rarr;</span>
-            </div>
+          <a href="#" class="rotating-item-link" target="_blank">
+            <img src="yt.png" alt="XXXXX" class="rotating-img">
           </a>
 
-          <a href="#" class="vhs-tape" target="_blank">
-            <div class="vhs-header">
-              <span>XXXXXXXX 04</span>
-              <span>[PDF]</span>
-            </div>
-            <h3 class="vhs-title">XXXX 4</h3>
-            <div class="vhs-footer">
-              <span>NTSC / STEREO</span>
-              <span class="vhs-btn">XXXXX &rarr;</span>
-            </div>
+          <a href="#" class="rotating-item-link" target="_blank">
+            <img src="yt.png" alt="XXXXX" class="rotating-img">
           </a>
 
-          <a href="#" class="vhs-tape" target="_blank">
-            <div class="vhs-header">
-              <span>XXXXXXXX 05</span>
-              <span>[PDF]</span>
-            </div>
-            <h3 class="vhs-title">XXXX 5</h3>
-            <div class="vhs-footer">
-              <span>NTSC / STEREO</span>
-              <span class="vhs-btn">XXXXX &rarr;</span>
-            </div>
+          <a href="#" class="rotating-item-link" target="_blank">
+            <img src="yt.png" alt="XXXXX" class="rotating-img">
           </a>
 
-          <a href="#" class="vhs-tape" target="_blank">
-            <div class="vhs-header">
-              <span>XXXXXXXX 06</span>
-              <span>[PDF]</span>
-            </div>
-            <h3 class="vhs-title">XXXX 6</h3>
-            <div class="vhs-footer">
-              <span>NTSC / STEREO</span>
-              <span class="vhs-btn">XXXXX &rarr;</span>
-            </div>
+          <a href="#" class="rotating-item-link" target="_blank">
+            <img src="yt.png" alt="XXXXX" class="rotating-img">
           </a>
 
-          <a href="#" class="vhs-tape" target="_blank">
-            <div class="vhs-header">
-              <span>XXXXXXXX 07</span>
-              <span>[PDF]</span>
-            </div>
-            <h3 class="vhs-title">XXXX 7</h3>
-            <div class="vhs-footer">
-              <span>NTSC / STEREO</span>
-              <span class="vhs-btn">XXXXX &rarr;</span>
-            </div>
+          <a href="#" class="rotating-item-link" target="_blank">
+            <img src="yt.png" alt="XXXXX" class="rotating-img">
           </a>
 
-          <a href="#" class="vhs-tape" target="_blank">
-            <div class="vhs-header">
-              <span>XXXXXXXX 08</span>
-              <span>[PDF]</span>
-            </div>
-            <h3 class="vhs-title">XXXX 8</h3>
-            <div class="vhs-footer">
-              <span>NTSC / STEREO</span>
-              <span class="vhs-btn">XXXXX &rarr;</span>
-            </div>
+          <a href="#" class="rotating-item-link" target="_blank">
+            <img src="yt.png" alt="XXXXX" class="rotating-img">
           </a>
         </div>
 
