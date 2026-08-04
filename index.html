@@ -3,28 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gerardo Szae</title>
+  <title>Dolphin Doe & Lezly Vuh</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- FUENTES PSICODÉLICAS ACTIVADAS -->
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=VT323&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #1a0b1c;
-      --paper: rgba(35, 15, 38, 0.6);
-      --ink: #f4b728;
-      --muted: #fce8cd;
+      --bg: #050205;
+      --paper: rgba(15, 3, 8, 0.85);
+      --ink: #d4c5c5;
+      --muted: #a08a8a;
       
-      /* Nueva Paleta Psicodélica 70s */
-      --retro-pink: #e884a9;
-      --retro-yellow: #f4b728;
-      --retro-orange: #e27329;
-      --retro-mint: #78c4af;
+      /* Estilo Terror Analógico / VHS */
+      --horror-red: #ff2222;
+      --horror-dark-red: #660000;
+      --horror-green: #00ff66;
+      --horror-white: #eeeeee;
       
-      --line: rgba(232, 132, 169, 0.4);
-      --glow-pink: 0 0 15px rgba(232, 132, 169, 0.7);
-      --glow-yellow: 0 0 15px rgba(244, 183, 40, 0.7);
-      --glow-orange: 0 0 15px rgba(226, 115, 41, 0.7);
+      --line: rgba(255, 34, 34, 0.4);
+      --glow-red: 0 0 12px rgba(255, 34, 34, 0.8);
+      --glow-green: 0 0 12px rgba(0, 255, 106, 0.6);
+      --vhs-shadow: 2px 0 0 rgba(255, 0, 0, 0.7), -2px 0 0 rgba(0, 255, 106, 0.7);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -47,13 +46,34 @@
       position: relative;
     }
 
+    /* OVERLAY CRT / VHS */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.4) 50%
+      ), linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 0.03),
+        rgba(0, 255, 0, 0.01),
+        rgba(0, 0, 255, 0.03)
+      );
+      background-size: 100% 4px, 6px 100%;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.7;
+    }
+
     body::after {
       content: "";
       position: fixed;
       inset: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(232, 132, 169, 0.15), rgba(244, 183, 40, 0.1) 50%, transparent 80%);
+      background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.95) 90%);
       pointer-events: none;
-      z-index: -1;
+      z-index: 998;
+      animation: vhsFlicker 0.15s infinite;
     }
 
     .container {
@@ -75,16 +95,29 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* Imagen de portada con efectos vintage */
+    header::before {
+      content: "● REC  [PLAY 00:13:37]";
+      position: absolute;
+      top: 1rem;
+      left: 1.5rem;
+      color: var(--horror-red);
+      font-family: 'VT323', monospace;
+      font-size: 1.1rem;
+      text-shadow: var(--glow-red);
+      animation: blinkRec 1s infinite;
+      letter-spacing: 0.1em;
+    }
+
     .portrait-container {
       position: relative;
       width: 160px;
       height: 160px;
       margin: 0 auto 2rem;
       border-radius: 50%;
-      border: 3px solid var(--retro-pink);
-      box-shadow: var(--glow-pink);
+      border: 2px solid var(--horror-red);
+      box-shadow: var(--glow-red);
       overflow: hidden;
+      background: #000;
     }
 
     .portrait-container::before {
@@ -93,23 +126,21 @@
       inset: -50%;
       width: 200%;
       height: 200%;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.85'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.85'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 2;
-      opacity: 0.35;
-      animation: staticNoise 0.12s steps(2) infinite;
+      opacity: 0.45;
+      animation: staticNoise 0.08s steps(2) infinite;
     }
 
     .portrait-container::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, rgba(232, 132, 169, 0.4), rgba(244, 183, 40, 0.4), rgba(226, 115, 41, 0.4));
-      mix-blend-mode: color-dodge;
+      background: linear-gradient(180deg, rgba(255,0,0,0.3), transparent 50%, rgba(0,255,102,0.2));
+      mix-blend-mode: overlay;
       pointer-events: none;
       z-index: 3;
-      opacity: 0.8;
-      animation: harrisShift 1.5s ease-in-out infinite alternate;
     }
 
     .portrait {
@@ -117,8 +148,8 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      filter: grayscale(80%) contrast(1.2);
-      transition: filter 0.4s ease, opacity 0.4s ease;
+      filter: grayscale(100%) contrast(1.8) brightness(0.7);
+      transition: filter 0.3s ease, opacity 0.3s ease;
       position: relative;
       z-index: 1;
     }
@@ -129,46 +160,47 @@
       left: 0;
       opacity: 0;
       z-index: 1;
-      filter: contrast(1.3) saturate(1.8) drop-shadow(0 0 5px var(--retro-pink));
+      filter: contrast(2.5) brightness(1.2) invert(0.9) drop-shadow(0 0 8px var(--horror-red));
     }
 
     .portrait-container:hover .portrait { opacity: 0; }
     .portrait-container:hover .portrait-alt { opacity: 1; }
 
-    /* Nombre con tipografía psicodélica y efecto glitch retro */
     h1 {
       font-family: 'Rubik Glitch', cursive;
       font-weight: 400;
       font-size: clamp(2.2rem, 7vw, 3.8rem);
       letter-spacing: 0.08em;
-      color: var(--retro-yellow);
+      color: var(--horror-white);
       text-transform: uppercase;
       margin-bottom: 0.2rem;
-      animation: harrisGlitch 0.35s infinite;
+      text-shadow: var(--vhs-shadow);
+      animation: horrorGlitch 0.2s infinite;
     }
 
     .alias {
       font-family: 'VT323', monospace;
       font-size: 1.6rem;
-      color: var(--retro-mint);
-      letter-spacing: 0.1em;
+      color: var(--horror-red);
+      letter-spacing: 0.15em;
       margin-bottom: 1.5rem;
-      text-shadow: 0 0 8px rgba(120, 196, 175, 0.5);
+      text-shadow: var(--glow-red);
     }
 
     .tagline {
       font-size: 1.2rem;
-      color: #fff;
+      color: #ccc;
       max-width: 520px;
       margin: 0 auto;
       letter-spacing: 0.05em;
-      border-left: 3px solid var(--retro-orange);
+      border-left: 3px solid var(--horror-red);
       padding-left: 1rem;
       text-align: left;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(10, 0, 0, 0.7);
       backdrop-filter: blur(4px);
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
     }
 
     nav {
@@ -182,23 +214,23 @@
     }
 
     nav a {
-      color: var(--retro-yellow);
+      color: var(--horror-white);
       text-decoration: none;
       font-size: 1.1rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
       padding: 0.4rem 0.8rem;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(20, 0, 0, 0.6);
       border: 1px solid var(--line);
       backdrop-filter: blur(4px);
-      border-radius: 20px;
+      border-radius: 4px;
     }
 
     nav a:hover, nav a:active {
       color: #000;
-      background: var(--retro-pink);
-      box-shadow: var(--glow-pink);
+      background: var(--horror-red);
+      box-shadow: var(--glow-red);
       font-weight: bold;
     }
 
@@ -213,22 +245,22 @@
       font-weight: 400;
       font-size: 2.2rem;
       letter-spacing: 0.1em;
-      color: var(--retro-pink);
+      color: var(--horror-red);
       margin-bottom: 2rem;
       text-align: center;
       text-transform: uppercase;
-      text-shadow: var(--glow-pink);
+      text-shadow: var(--glow-red);
     }
 
     section h2::before {
-      content: "// ";
-      color: var(--retro-orange);
+      content: "⚠️ ";
+      font-size: 1.5rem;
     }
 
     .about-text {
       font-size: 1.3rem;
       line-height: 1.6;
-      color: #ffffff;
+      color: var(--horror-white);
       max-width: 640px;
       margin: 0 auto;
       text-align: center;
@@ -236,185 +268,197 @@
       padding: 2rem;
       border: 1px solid var(--line);
       backdrop-filter: blur(6px);
-      border-radius: 12px;
+      border-radius: 4px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.9), inset 0 0 15px rgba(255, 0, 0, 0.15);
     }
 
-    /* --- ALINEACIÓN CIRCULAR EXACTA DE 8 BOTONES --- */
-    .wheel-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 600px;
-      height: 600px;
+    /* --- CINTAS VHS CON MOVIMIENTO DE ARRIBA A ABAJO --- */
+    .vhs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
       margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
-    .wheel-center {
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: radial-gradient(circle, var(--retro-orange) 0%, rgba(20, 5, 25, 0.9) 70%);
-      border: 2px solid var(--retro-yellow);
-      box-shadow: var(--glow-orange), inset 0 0 20px var(--retro-pink);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-family: 'Rubik Glitch', cursive;
-      font-size: 0.9rem;
-      color: #fff;
-      letter-spacing: 0.05em;
-      z-index: 5;
-      pointer-events: none;
-      animation: pulseCenter 2s ease-in-out infinite alternate;
-    }
-
-    .wheel-container {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      border: 1px dashed rgba(232, 132, 169, 0.3);
-      animation: spinWheel 50s linear infinite;
-    }
-
-    .wheel-container:hover {
-      animation-play-state: paused;
-    }
-
-    /* 8 Botones alineados matemáticamente a 45 grados */
-    .wheel-item {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 100px;
-      height: 100px;
-      margin-top: -50px;
-      margin-left: -50px;
-      z-index: 10;
-    }
-
-    .wheel-item:nth-child(1) { transform: rotate(0deg) translate(220px) rotate(0deg); }
-    .wheel-item:nth-child(2) { transform: rotate(45deg) translate(220px) rotate(-45deg); }
-    .wheel-item:nth-child(3) { transform: rotate(90deg) translate(220px) rotate(-90deg); }
-    .wheel-item:nth-child(4) { transform: rotate(135deg) translate(220px) rotate(-135deg); }
-    .wheel-item:nth-child(5) { transform: rotate(180deg) translate(220px) rotate(-180deg); }
-    .wheel-item:nth-child(6) { transform: rotate(225deg) translate(220px) rotate(-225deg); }
-    .wheel-item:nth-child(7) { transform: rotate(270deg) translate(220px) rotate(-270deg); }
-    .wheel-item:nth-child(8) { transform: rotate(315deg) translate(220px) rotate(-315deg); }
-
-    /* ESTILO DE CADA BOTÓN CIRCULAR CON COLORES RETRO */
-    .harris-circle-btn {
+    .vhs-tape {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: rgba(25, 10, 28, 0.95);
-      border: 2px solid var(--retro-pink);
-      color: #fff;
+      justify-content: space-between;
+      height: 140px;
+      padding: 1rem;
+      background: linear-gradient(135deg, #111 0%, #050505 100%);
+      border: 2px solid var(--horror-red);
+      border-left: 6px solid var(--horror-dark-red);
+      color: var(--horror-white);
       text-decoration: none;
-      text-align: center;
-      padding: 0.5rem;
+      box-shadow: var(--glow-red), 0 5px 15px rgba(0,0,0,0.8);
       position: relative;
       overflow: hidden;
-      box-shadow: var(--glow-pink);
-      backdrop-filter: blur(4px);
-      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      animation: counterSpin 50s linear infinite;
+      border-radius: 3px;
+
+      /* Animación suave arriba-abajo */
+      animation: vhsFloat 3.5s ease-in-out infinite alternate;
+      transition: all 0.3s ease;
     }
 
-    .wheel-container:hover .harris-circle-btn {
+    /* Variamos la duración del movimiento en cada cinta para un efecto desfasado analógico */
+    .vhs-tape:nth-child(2n) { animation-duration: 4.2s; animation-delay: -0.8s; }
+    .vhs-tape:nth-child(3n) { animation-duration: 3.8s; animation-delay: -1.5s; }
+    .vhs-tape:nth-child(4n) { animation-duration: 4.5s; animation-delay: -0.3s; }
+
+    /* Etiqueta / Ventana de la cinta */
+    .vhs-tape::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 40px;
+      height: 12px;
+      background: rgba(255, 34, 34, 0.2);
+      border: 1px solid var(--horror-red);
+      border-radius: 2px;
+    }
+
+    .vhs-tape:hover {
       animation-play-state: paused;
+      transform: translateY(-8px) scale(1.03);
+      border-color: var(--horror-green);
+      box-shadow: var(--glow-green), 0 8px 20px rgba(0,255,102,0.2);
+      background: #18080c;
     }
 
-    .harris-circle-btn::before {
-      content: "";
-      position: absolute;
-      inset: -50%;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.85'/%3E%3C/svg%3E");
-      opacity: 0.2;
-      pointer-events: none;
-      z-index: 1;
-      animation: staticNoise 0.1s steps(2) infinite;
+    .vhs-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--horror-red);
+      letter-spacing: 0.1em;
+      border-bottom: 1px dashed rgba(255, 34, 34, 0.3);
+      padding-bottom: 0.3rem;
     }
 
-    .harris-circle-btn::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(232, 132, 169, 0.4), rgba(244, 183, 40, 0.4), rgba(120, 196, 175, 0.4));
-      mix-blend-mode: color-dodge;
-      opacity: 0;
-      pointer-events: none;
-      z-index: 2;
-      transition: opacity 0.3s ease;
+    .vhs-tape:hover .vhs-header {
+      color: var(--horror-green);
+      border-color: rgba(0, 255, 106, 0.3);
     }
 
-    .harris-circle-btn:hover {
-      transform: scale(1.2);
-      border-color: var(--retro-yellow);
-      box-shadow: 0 0 20px var(--retro-yellow), var(--glow-orange);
-      z-index: 20;
-    }
-
-    .harris-circle-btn:hover::after {
-      opacity: 1;
-      animation: harrisShift 0.8s ease-in-out infinite alternate;
-    }
-
-    .harris-circle-btn h3 {
+    .vhs-title {
       font-family: 'Rubik Glitch', cursive;
-      font-size: 0.8rem;
-      font-weight: 400;
-      color: #fff;
-      line-height: 1.1;
-      z-index: 3;
-      text-transform: uppercase;
-      margin-bottom: 2px;
+      font-size: 1.3rem;
+      color: var(--horror-white);
+      margin: 0.5rem 0;
     }
 
-    .harris-circle-btn .type {
-      font-family: 'VT323', monospace;
-      font-size: 0.8rem;
-      color: var(--retro-yellow);
-      z-index: 3;
-      text-shadow: 0 0 4px #000;
+    .vhs-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      color: #888;
     }
 
-    .harris-circle-btn .read-icon {
-      font-size: 0.8rem;
-      color: var(--retro-pink);
-      margin-top: 2px;
-      z-index: 3;
+    .vhs-btn {
+      color: var(--horror-red);
       font-weight: bold;
+      letter-spacing: 0.1em;
     }
 
-    .harris-circle-btn:hover h3 {
-      animation: harrisGlitch 0.2s infinite;
-      color: var(--retro-yellow);
+    .vhs-tape:hover .vhs-btn {
+      color: var(--horror-green);
+    }
+
+    /* FORMULARIO CON ARCHIVOS ADJUNTOS */
+    .comment-form {
+      max-width: 560px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      background: var(--paper);
+      padding: 2rem;
+      border: 1px solid var(--line);
+      backdrop-filter: blur(6px);
+      border-radius: 4px;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
+    }
+
+    .comment-form label {
+      display: block;
+      font-size: 1.1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--horror-red);
+      margin-bottom: 0.4rem;
+      text-shadow: var(--glow-red);
+    }
+
+    .comment-form input, .comment-form textarea {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid var(--line);
+      color: var(--horror-white);
+      font-family: 'VT323', monospace;
+      font-size: 1.2rem;
+      padding: 0.8rem 1rem;
+      outline: none;
+      border-radius: 2px;
+    }
+
+    .comment-form input[type="file"] {
+      padding: 0.5rem;
+      cursor: pointer;
+      background: rgba(20, 0, 0, 0.5);
+    }
+
+    .comment-form input[type="file"]::file-selector-button {
+      background: var(--horror-dark-red);
+      border: 1px solid var(--horror-red);
+      color: var(--horror-white);
+      font-family: 'VT323', monospace;
+      padding: 0.3rem 0.8rem;
+      margin-right: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .comment-form input[type="file"]::file-selector-button:hover {
+      background: var(--horror-red);
+      color: #000;
+    }
+
+    .comment-form input:focus, .comment-form textarea:focus {
+      border-color: var(--horror-green);
+      box-shadow: var(--glow-green);
+    }
+
+    .comment-form button {
+      align-self: flex-start;
+      background: var(--horror-dark-red);
+      border: 1px solid var(--horror-red);
+      color: var(--horror-white);
+      font-family: 'Rubik Glitch', cursive;
+      font-size: 1.1rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.8rem 2rem;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      box-shadow: var(--glow-red);
+    }
+
+    .comment-form button:hover {
+      background: var(--horror-red);
+      color: #000;
+      box-shadow: var(--glow-red);
     }
 
     /* ANIMACIONES */
-    @keyframes spinWheel {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    @keyframes counterSpin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(-360deg); }
-    }
-
-    @keyframes pulseCenter {
-      0% { transform: scale(0.95); box-shadow: var(--glow-orange); }
-      100% { transform: scale(1.08); box-shadow: 0 0 25px var(--retro-pink), 0 0 10px var(--retro-yellow); }
+    @keyframes vhsFloat {
+      0% { transform: translateY(-6px); }
+      100% { transform: translateY(6px); }
     }
 
     @keyframes staticNoise {
@@ -426,23 +470,27 @@
       100% { transform: translate(0, 0); }
     }
 
-    @keyframes harrisGlitch {
-      0% { text-shadow: 2px 0 0 #e884a9, -2px 0 0 #f4b728, 0 1px 0 #78c4af; }
-      50% { text-shadow: -2px -1px 0 #e27329, 2px 1px 0 #e884a9, -1px 1px 0 #f4b728; }
-      100% { text-shadow: 2px 0 0 #e884a9, -2px 0 0 #f4b728, 0 1px 0 #78c4af; }
+    @keyframes blinkRec {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
 
-    @keyframes harrisShift {
-      0% { transform: translateX(-3px) scale(1.02); filter: hue-rotate(0deg); }
-      50% { transform: translateX(3px) scale(1.28); filter: hue-rotate(90deg); }
-      100% { transform: translateX(-1px) scale(1); filter: hue-rotate(180deg); }
+    @keyframes vhsFlicker {
+      0% { opacity: 0.97; }
+      50% { opacity: 1; }
+      52% { opacity: 0.9; }
+      54% { opacity: 1; }
+      100% { opacity: 0.98; }
+    }
+
+    @keyframes horrorGlitch {
+      0% { text-shadow: 2px 0 0 var(--horror-red), -2px 0 0 var(--horror-green); }
+      50% { text-shadow: -3px 0 0 var(--horror-red), 2px 0 0 var(--horror-green); }
+      100% { text-shadow: 2px 0 0 var(--horror-red), -2px 0 0 var(--horror-green); }
     }
 
     /* OTROS COMPONENTES */
-    .bottom-image-container {
-      text-align: center;
-      padding: 2rem 0 4rem;
-    }
+    .bottom-image-container { text-align: center; padding: 2rem 0 4rem; }
 
     .gt-image-container {
       display: inline-block;
@@ -450,38 +498,38 @@
       overflow: hidden;
       max-width: 100%;
       border: 1px solid var(--line);
-      box-shadow: var(--glow-pink);
+      box-shadow: var(--glow-red);
       cursor: pointer;
-      border-radius: 8px;
+      border-radius: 4px;
     }
 
     .gt-image-container img {
       display: block;
       max-width: 100%;
       height: auto;
-      transition: opacity 0.4s ease, transform 0.4s ease;
+      transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
-    .gt-img-normal { position: relative; z-index: 1; }
+    .gt-img-normal { position: relative; z-index: 1; filter: grayscale(90%) contrast(1.5); }
     .gt-img-scary {
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
       object-fit: cover;
       opacity: 0; z-index: 1;
-      filter: contrast(1.5) brightness(0.7) saturate(2) drop-shadow(0 0 15px rgba(226, 115, 41, 0.8));
+      filter: contrast(2) brightness(0.6) saturate(3) drop-shadow(0 0 20px var(--horror-red));
     }
 
     .gt-image-container:hover .gt-img-normal { opacity: 0; }
-    .gt-image-container:hover .gt-img-scary { opacity: 1; transform: scale(1.03); }
+    .gt-image-container:hover .gt-img-scary { opacity: 1; transform: scale(1.05); }
 
     .video-modal {
       display: none;
       position: fixed;
       inset: 0;
       z-index: 2000;
-      background: rgba(15, 5, 20, 0.92);
-      backdrop-filter: blur(8px);
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
       align-items: center;
       justify-content: center;
       padding: 1.5rem;
@@ -494,8 +542,8 @@
       width: 100%;
       max-width: 800px;
       aspect-ratio: 16 / 9;
-      border: 2px solid var(--retro-pink);
-      box-shadow: var(--glow-pink);
+      border: 2px solid var(--horror-red);
+      box-shadow: var(--glow-red);
       background: #000;
     }
 
@@ -506,11 +554,11 @@
       top: -40px; right: 0;
       background: transparent;
       border: none;
-      color: var(--retro-orange);
+      color: var(--horror-red);
       font-family: 'Rubik Glitch', cursive;
       font-size: 1.5rem;
       cursor: pointer;
-      text-shadow: var(--glow-orange);
+      text-shadow: var(--glow-red);
     }
 
     .contact-block {
@@ -519,78 +567,25 @@
       padding: 2rem;
       border: 1px solid var(--line);
       backdrop-filter: blur(6px);
-      border-radius: 12px;
+      border-radius: 4px;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
     }
 
     .contact-email {
       font-family: 'VT323', monospace;
       font-size: 1.5rem;
-      color: var(--retro-yellow);
+      color: var(--horror-red);
       text-decoration: none;
       word-break: break-word;
-      border-bottom: 1px solid var(--retro-yellow);
+      border-bottom: 1px solid var(--horror-red);
       transition: all 0.3s ease;
+      text-shadow: var(--glow-red);
     }
 
     .contact-email:hover {
-      color: var(--retro-pink);
-      border-color: var(--retro-pink);
-      text-shadow: 0 0 8px var(--retro-pink);
-    }
-
-    .comment-form {
-      max-width: 560px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-      background: var(--paper);
-      padding: 2rem;
-      border: 1px solid var(--line);
-      backdrop-filter: blur(6px);
-      border-radius: 12px;
-    }
-
-    .comment-form label {
-      display: block;
-      font-size: 1.1rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--retro-yellow);
-      margin-bottom: 0.4rem;
-    }
-
-    .comment-form input, .comment-form textarea {
-      width: 100%;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid var(--line);
-      color: #fff;
-      font-family: 'VT323', monospace;
-      font-size: 1.2rem;
-      padding: 0.8rem 1rem;
-      outline: none;
-      border-radius: 6px;
-    }
-
-    .comment-form button {
-      align-self: flex-start;
-      background: var(--retro-pink);
-      border: none;
-      color: #000;
-      font-family: 'Rubik Glitch', cursive;
-      font-size: 1.1rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 0.8rem 2rem;
-      cursor: pointer;
-      border-radius: 20px;
-      transition: all 0.3s ease;
-    }
-
-    .comment-form button:hover {
-      background: var(--retro-yellow);
-      color: #000;
-      box-shadow: var(--glow-yellow);
+      color: var(--horror-green);
+      border-color: var(--horror-green);
+      text-shadow: var(--glow-green);
     }
 
     .socials {
@@ -613,15 +608,15 @@
     }
 
     .socials a:hover {
-      color: var(--retro-pink);
-      text-shadow: var(--glow-pink);
+      color: var(--horror-red);
+      text-shadow: var(--glow-red);
     }
 
     footer {
       padding: 2.5rem 0 3.5rem;
       text-align: center;
       border-top: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(6px);
     }
 
@@ -632,58 +627,25 @@
       width: 45px;
       height: 45px;
       border-radius: 50%;
-      background: var(--paper);
-      border: 1px solid var(--retro-orange);
-      color: var(--retro-orange);
+      background: #000;
+      border: 1px solid var(--horror-red);
+      color: var(--horror-red);
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
       z-index: 1001;
-      box-shadow: var(--glow-orange);
+      box-shadow: var(--glow-red);
       transition: all 0.3s ease;
     }
 
     .btn-circular:hover {
-      background: var(--retro-orange);
-      color: #fff;
+      background: var(--horror-red);
+      color: #000;
       transform: scale(1.15);
     }
 
     .btn-circular svg { width: 16px; height: 16px; fill: currentColor; }
-
-    /* Adaptación Móvil */
-    @media (max-width: 650px) {
-      .wheel-wrapper {
-        height: 400px;
-      }
-      .wheel-item {
-        width: 75px;
-        height: 75px;
-        margin-top: -37px;
-        margin-left: -37px;
-      }
-      .wheel-item:nth-child(1) { transform: rotate(0deg) translate(140px) rotate(0deg); }
-      .wheel-item:nth-child(2) { transform: rotate(45deg) translate(140px) rotate(-45deg); }
-      .wheel-item:nth-child(3) { transform: rotate(90deg) translate(140px) rotate(-90deg); }
-      .wheel-item:nth-child(4) { transform: rotate(135deg) translate(140px) rotate(-135deg); }
-      .wheel-item:nth-child(5) { transform: rotate(180deg) translate(140px) rotate(-180deg); }
-      .wheel-item:nth-child(6) { transform: rotate(225deg) translate(140px) rotate(-225deg); }
-      .wheel-item:nth-child(7) { transform: rotate(270deg) translate(140px) rotate(-270deg); }
-      .wheel-item:nth-child(8) { transform: rotate(315deg) translate(140px) rotate(-315deg); }
-
-      .wheel-center {
-        width: 80px;
-        height: 80px;
-        font-size: 0.65rem;
-      }
-      .harris-circle-btn h3 {
-        font-size: 0.6rem;
-      }
-      .harris-circle-btn .type {
-        font-size: 0.6rem;
-      }
-    }
   </style>
 </head>
 <body>
@@ -717,103 +679,122 @@
       </div>
     </section>
 
-    <!-- SECCIÓN OBRAS EN RUEDA PSICODÉLICA (8 BOTONES CIRCULARES) -->
+    <!-- SECCIÓN OBRAS REEMPLAZADA POR RECUADROS DE CINTAS VHS FLOTANTES -->
     <section id="obras">
       <div class="container">
-        <h2>Obras Psicodélicas</h2>
+        <h2>Archivos VHS</h2>
         
-        <div class="wheel-wrapper">
-          <div class="wheel-center">
-            <span>SELECCIONA<br>UN PDF</span>
-          </div>
-
-          <div class="wheel-container">
-            <!-- BOTÓN 1 -->
-            <div class="wheel-item">
-              <a href="#" class="harris-circle-btn" target="_blank">
-                <h3>Obra 1</h3>
-                <span class="type">PDF</span>
-                <span class="read-icon">&rarr;</span>
-              </a>
+        <div class="vhs-grid">
+          <a href="#" class="vhs-tape" target="_blank">
+            <div class="vhs-header">
+              <span>CASSETTE 01</span>
+              <span>[PDF]</span>
             </div>
-
-            <!-- BOTÓN 2 -->
-            <div class="wheel-item">
-              <a href="#" class="harris-circle-btn" target="_blank">
-                <h3>Obra 2</h3>
-                <span class="type">PDF</span>
-                <span class="read-icon">&rarr;</span>
-              </a>
+            <h3 class="vhs-title">Obra 1</h3>
+            <div class="vhs-footer">
+              <span>NTSC / STEREO</span>
+              <span class="vhs-btn">ABRIR &rarr;</span>
             </div>
+          </a>
 
-            <!-- BOTÓN 3 -->
-            <div class="wheel-item">
-              <a href="#" class="harris-circle-btn" target="_blank">
-                <h3>Obra 3</h3>
-                <span class="type">PDF</span>
-                <span class="read-icon">&rarr;</span>
-              </a>
+          <a href="#" class="vhs-tape" target="_blank">
+            <div class="vhs-header">
+              <span>CASSETTE 02</span>
+              <span>[PDF]</span>
             </div>
-
-            <!-- BOTÓN 4 -->
-            <div class="wheel-item">
-              <a href="#" class="harris-circle-btn" target="_blank">
-                <h3>Obra 4</h3>
-                <span class="type">PDF</span>
-                <span class="read-icon">&rarr;</span>
-              </a>
+            <h3 class="vhs-title">Obra 2</h3>
+            <div class="vhs-footer">
+              <span>NTSC / STEREO</span>
+              <span class="vhs-btn">ABRIR &rarr;</span>
             </div>
+          </a>
 
-            <!-- BOTÓN 5 -->
-            <div class="wheel-item">
-              <a href="#" class="harris-circle-btn" target="_blank">
-                <h3>Obra 5</h3>
-                <span class="type">PDF</span>
-                <span class="read-icon">&rarr;</span>
-              </a>
+          <a href="#" class="vhs-tape" target="_blank">
+            <div class="vhs-header">
+              <span>CASSETTE 03</span>
+              <span>[PDF]</span>
             </div>
-
-            <!-- BOTÓN 6 -->
-            <div class="wheel-item">
-              <a href="#" class="harris-circle-btn" target="_blank">
-                <h3>Obra 6</h3>
-                <span class="type">PDF</span>
-                <span class="read-icon">&rarr;</span>
-              </a>
+            <h3 class="vhs-title">Obra 3</h3>
+            <div class="vhs-footer">
+              <span>NTSC / STEREO</span>
+              <span class="vhs-btn">ABRIR &rarr;</span>
             </div>
+          </a>
 
-            <!-- BOTÓN 7 -->
-            <div class="wheel-item">
-              <a href="#" class="harris-circle-btn" target="_blank">
-                <h3>Obra 7</h3>
-                <span class="type">PDF</span>
-                <span class="read-icon">&rarr;</span>
-              </a>
+          <a href="#" class="vhs-tape" target="_blank">
+            <div class="vhs-header">
+              <span>CASSETTE 04</span>
+              <span>[PDF]</span>
             </div>
-
-            <!-- BOTÓN 8 -->
-            <div class="wheel-item">
-              <a href="#" class="harris-circle-btn" target="_blank">
-                <h3>Obra 8</h3>
-                <span class="type">PDF</span>
-                <span class="read-icon">&rarr;</span>
-              </a>
+            <h3 class="vhs-title">Obra 4</h3>
+            <div class="vhs-footer">
+              <span>NTSC / STEREO</span>
+              <span class="vhs-btn">ABRIR &rarr;</span>
             </div>
+          </a>
 
-          </div>
+          <a href="#" class="vhs-tape" target="_blank">
+            <div class="vhs-header">
+              <span>CASSETTE 05</span>
+              <span>[PDF]</span>
+            </div>
+            <h3 class="vhs-title">Obra 5</h3>
+            <div class="vhs-footer">
+              <span>NTSC / STEREO</span>
+              <span class="vhs-btn">ABRIR &rarr;</span>
+            </div>
+          </a>
+
+          <a href="#" class="vhs-tape" target="_blank">
+            <div class="vhs-header">
+              <span>CASSETTE 06</span>
+              <span>[PDF]</span>
+            </div>
+            <h3 class="vhs-title">Obra 6</h3>
+            <div class="vhs-footer">
+              <span>NTSC / STEREO</span>
+              <span class="vhs-btn">ABRIR &rarr;</span>
+            </div>
+          </a>
+
+          <a href="#" class="vhs-tape" target="_blank">
+            <div class="vhs-header">
+              <span>CASSETTE 07</span>
+              <span>[PDF]</span>
+            </div>
+            <h3 class="vhs-title">Obra 7</h3>
+            <div class="vhs-footer">
+              <span>NTSC / STEREO</span>
+              <span class="vhs-btn">ABRIR &rarr;</span>
+            </div>
+          </a>
+
+          <a href="#" class="vhs-tape" target="_blank">
+            <div class="vhs-header">
+              <span>CASSETTE 08</span>
+              <span>[PDF]</span>
+            </div>
+            <h3 class="vhs-title">Obra 8</h3>
+            <div class="vhs-footer">
+              <span>NTSC / STEREO</span>
+              <span class="vhs-btn">ABRIR &rarr;</span>
+            </div>
+          </a>
         </div>
 
       </div>
     </section>
 
+    <!-- SECCIÓN COMENTARIOS CON FORMSUBMIT Y ADJUNTO DE ARCHIVOS -->
     <section id="comentarios">
       <div class="container">
-        <h2>Comentarios</h2>
-        <form class="comment-form" action="#" method="POST">
-          <input type="hidden" name="_subject" value="Nuevo comentario">
+        <h2>Comentarios y Archivos</h2>
+        <form class="comment-form" action="https://formsubmit.co/tu-email@ejemplo.com" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="_subject" value="Nuevo comentario enviado con archivo">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
           <input type="text" name="_honey" style="display:none">
+
           <div>
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
@@ -826,6 +807,12 @@
             <label for="mensaje">Comentario</label>
             <textarea id="mensaje" name="mensaje" required placeholder="Escribe aquí tu comentario..."></textarea>
           </div>
+          
+          <div>
+            <label for="archivo">Adjuntar Archivo</label>
+            <input type="file" id="archivo" name="attachment" accept="image/*,.pdf,.doc,.docx,.txt">
+          </div>
+
           <button type="submit">Enviar comentario</button>
         </form>
       </div>
