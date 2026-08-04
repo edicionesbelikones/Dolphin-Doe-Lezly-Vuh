@@ -46,6 +46,7 @@
 
     body {
       background-color: var(--bg);
+      /* Asegúrate de tener esta imagen de fondo o cambiar la ruta */
       background-image: url('IMG_0061.jpg');
       background-size: cover;
       background-position: center;
@@ -166,6 +167,7 @@
       animation: slimePulse 3s ease-in-out infinite alternate;
     }
 
+    /* Ruido estático base */
     .portrait-container-corroded::after {
       content: "";
       position: absolute;
@@ -175,7 +177,7 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.85'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 3;
-      opacity: 0.2;
+      opacity: 0.1;
       animation: staticNoise 0.12s steps(2) infinite;
     }
 
@@ -185,17 +187,19 @@
       box-shadow: var(--glow-accent), 0 15px 35px rgba(0, 0, 0, 0.7);
     }
 
+    /* Imagen normal (b.jpg / a.jpg) */
     .portrait {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
       filter: grayscale(100%) contrast(1.2) brightness(0.85);
-      transition: filter 0.4s ease, opacity 0.4s ease;
+      transition: opacity 0.2s ease;
       position: relative;
       z-index: 1;
     }
 
+    /* Imagen oculta al hover (33.jpg / 22.jpg) */
     .portrait-alt {
       position: absolute;
       top: 0;
@@ -205,15 +209,27 @@
       object-fit: cover;
       opacity: 0;
       z-index: 2;
-      filter: contrast(1.8) brightness(1) drop-shadow(0 0 8px var(--horror-green));
+      /* Filtro base para la imagen de horror */
+      filter: grayscale(30%) contrast(1.5) brightness(0.9) sepia(20%) hue-rotate(-15deg);
     }
 
-    .portrait-container-corroded:hover .portrait { opacity: 0; }
+    /* Lógica de cambio de imagen al hover */
+    .portrait-container-corroded:hover .portrait { 
+      opacity: 0; 
+    }
     
-    /* EFECTO VHS / CINTA DAÑADA AL PASAR EL CURSOR SOBRE LAS FOTOS PRINCIPALES */
+    /* EFECTO VHS / CINTA DAÑADA AGRESIVO AL HOVER */
     .portrait-container-corroded:hover .portrait-alt { 
       opacity: 1; 
-      animation: vhsGlitch 0.3s steps(2) infinite;
+      animation: vhsTapeRuined 0.2s steps(1) infinite;
+    }
+
+    /* Pseudo-elemento extra para líneas de escaneo agresivas solo en hover */
+    .portrait-container-corroded:hover::after {
+      opacity: 0.4; /* Aumenta el ruido estático en hover */
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.85'/%3E%3C/svg%3E"),
+                       linear-gradient(0deg, rgba(255,255,255,0.1) 50%, transparent 50%);
+      background-size: 100% 100%, 100% 4px;
     }
 
     /* NOMENCLATURA PRINCIPAL Y TIPOGRAFÍA DE NOMBRES */
@@ -517,37 +533,58 @@
       box-shadow: var(--glow-accent);
     }
 
-    /* ANIMACIONES */
-    @keyframes vhsGlitch {
+    /* --- ANIMACIONES --- */
+
+    /* EFECTO CINTA DAÑADA EXTREMO (HOVER FOTOS PERFIL) */
+    @keyframes vhsTapeRuined {
       0% {
-        transform: translate(0, 0) scale(1);
-        filter: contrast(1.8) brightness(1) drop-shadow(2px 0 0 red) drop-shadow(-2px 0 0 cyan);
+        transform: translate(1px, 1px) skew(0.5deg);
+        filter: grayscale(30%) contrast(1.5) brightness(0.9) drop-shadow(2px 0 0 #ff00c1) drop-shadow(-2px 0 0 #00fff9);
         clip-path: inset(0 0 0 0);
+      }
+      10% {
+        transform: translate(-1px, -1px) skew(-0.5deg);
+        filter: grayscale(0%) contrast(2) brightness(1.2) hue-rotate(90deg);
+        clip-path: inset(10% 0 80% 0); /* Corte horizontal */
       }
       20% {
-        transform: translate(-3px, 2px) scale(1.02);
-        filter: contrast(2.2) brightness(1.2) hue-rotate(90deg);
-        clip-path: inset(15% 0 35% 0);
+        transform: translate(2px, -2px);
+        filter: contrast(1.8) brightness(0.8) invert(1); /* Inversión momentánea */
+        clip-path: inset(80% 0 5% 0);
+      }
+      30% {
+        transform: translate(-2px, 2px) scaleY(1.1);
+        filter: grayscale(100%) contrast(3);
+        clip-path: inset(40% 0 40% 0);
       }
       40% {
-        transform: translate(3px, -2px) scale(0.98);
-        filter: contrast(1.5) brightness(0.8) invert(0.2);
-        clip-path: inset(40% 0 10% 0);
+        transform: translate(1px, -1px);
+        filter: saturate(5) hue-rotate(-90deg);
+        clip-path: inset(0 0 0 0);
+      }
+      50% {
+        transform: translate(-1px, 1px) skew(1deg);
+        filter: drop-shadow(3px 0 0 var(--horror-green)) drop-shadow(-3px 0 0 purple);
       }
       60% {
-        transform: translate(-2px, -1px) scale(1.01);
-        filter: contrast(2) brightness(1.1) drop-shadow(-3px 0 0 var(--horror-green));
-        clip-path: inset(70% 0 5% 0);
+        transform: translate(5px, 0) scaleX(0.9); /* Distorsión horizontal */
+        filter: brightness(2) contrast(0.5);
+      }
+      70% {
+        transform: translate(0, 0);
+        clip-path: inset(20% 0 20% 0);
       }
       80% {
-        transform: translate(2px, 3px) scale(0.99);
-        filter: contrast(1.6) brightness(1.3);
-        clip-path: inset(5% 0 60% 0);
+        transform: translate(-2px, -2px);
+        filter: grayscale(0%) saturate(1) brightness(1);
+      }
+      90% {
+        transform: translate(2px, 2px);
+        filter: contrast(2) white-balance(50);
       }
       100% {
-        transform: translate(0, 0) scale(1);
-        filter: contrast(1.8) brightness(1) drop-shadow(0 0 8px var(--horror-green));
-        clip-path: inset(0 0 0 0);
+        transform: translate(1px, -1px);
+        filter: grayscale(30%) contrast(1.5) brightness(0.9);
       }
     }
 
@@ -563,10 +600,10 @@
 
     @keyframes staticNoise {
       0% { transform: translate(0, 0); }
-      10% { transform: translate(-3%, -3%); }
-      30% { transform: translate(3%, -6%); }
-      50% { transform: translate(-6%, 3%); }
-      70% { transform: translate(0, 6%); }
+      10% { transform: translate(-1%, -1%); }
+      30% { transform: translate(1%, -2%); }
+      50% { transform: translate(-2%, 1%); }
+      70% { transform: translate(0, 2%); }
       100% { transform: translate(0, 0); }
     }
 
@@ -791,19 +828,21 @@
   <header>
     <div class="container">
       <div class="dual-portraits-wrapper">
-        <!-- FOTO 1 -->
-        <a href="#" target="_blank" class="portrait-link">
+        <!-- FOTO 1: DOLPHIN DOE -->
+        <a href="#" target="_blank" class="portrait-link" title="Dolphin Doe">
           <div class="portrait-container-corroded">
-            <img src="b.jpg" alt="Foto principal B" class="portrait">
-            <img src="Code_Generated_Image.jpg" alt="Foto alt B" class="portrait portrait-alt">
+            <img src="b.jpg" alt="Dolphin Doe Base" class="portrait">
+            <!-- Intercambiada: 33.jpg ahora corresponde a Dolphin Doe -->
+            <img src="33.jpg" alt="Dolphin Doe Hover" class="portrait portrait-alt">
           </div>
         </a>
 
-        <!-- FOTO 2 -->
-        <a href="#" target="_blank" class="portrait-link">
+        <!-- FOTO 2: LEZLY VUH -->
+        <a href="#" target="_blank" class="portrait-link" title="Lezly Vuh">
           <div class="portrait-container-corroded">
-            <img src="a.jpg" alt="Foto principal A" class="portrait">
-            <img src="Code_Generated_Image (1).jpg" alt="Foto alt A" class="portrait portrait-alt">
+            <img src="a.jpg" alt="Lezly Vuh Base" class="portrait">
+            <!-- Intercambiada: 22.jpg ahora corresponde a Lezly Vuh -->
+            <img src="22.jpg" alt="Lezly Vuh Hover" class="portrait portrait-alt">
           </div>
         </a>
       </div>
