@@ -3,28 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dolphin Doe & Lezly Vuh</title>
+  <title>XXXXX XXX & XXXXX XXX</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=VT323&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #050205;
-      --paper: rgba(15, 3, 8, 0.85);
-      --ink: #d4c5c5;
-      --muted: #a08a8a;
+      --paper: rgba(3, 8, 15, 0.85);
+      --ink: #c5cbd4;
+      --muted: #8aa0a0;
       
-      /* Estilo Terror Analógico / VHS */
-      --horror-red: #ff2222;
-      --horror-dark-red: #660000;
+      /* Estilo Terror Analógico / VHS - Azul Profundo */
+      --horror-blue: #0055ff;
+      --horror-dark-blue: #001144;
       --horror-green: #00ff66;
       --horror-dark-green: #003311;
       --horror-white: #eeeeee;
       
-      --line: rgba(255, 34, 34, 0.4);
-      --glow-red: 0 0 12px rgba(255, 34, 34, 0.8);
+      --line: rgba(0, 85, 255, 0.4);
+      --glow-blue: 0 0 12px rgba(0, 85, 255, 0.8);
       --glow-green: 0 0 15px rgba(0, 255, 102, 0.8), inset 0 0 10px rgba(0, 255, 102, 0.5);
-      --vhs-shadow: 2px 0 0 rgba(255, 0, 0, 0.7), -2px 0 0 rgba(0, 255, 106, 0.7);
+      --vhs-shadow: 2px 0 0 rgba(0, 85, 255, 0.7), -2px 0 0 rgba(0, 255, 106, 0.7);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -53,11 +53,11 @@
       position: fixed;
       inset: 0;
       background: linear-gradient(
-        rgba(18, 16, 16, 0) 50%, 
+        rgba(16, 16, 18, 0) 50%, 
         rgba(0, 0, 0, 0.4) 50%
       ), linear-gradient(
         90deg,
-        rgba(255, 0, 0, 0.03),
+        rgba(0, 85, 255, 0.03),
         rgba(0, 255, 0, 0.01),
         rgba(0, 0, 255, 0.03)
       );
@@ -91,19 +91,19 @@
     }
 
     header::before {
-      content: "● REC  [PLAY 00:13:37]";
+      content: "● XXX  [XXXX 00:13:37]";
       position: absolute;
       top: 1rem;
       left: 1.5rem;
-      color: var(--horror-red);
+      color: var(--horror-blue);
       font-family: 'VT323', monospace;
       font-size: 1.1rem;
-      text-shadow: var(--glow-red);
+      text-shadow: var(--glow-blue);
       animation: blinkRec 1s infinite;
       letter-spacing: 0.1em;
     }
 
-    /* --- NUEVO SECTOR DE DOS FOTOGRAFÍAS DESCOMPUESTAS --- */
+    /* --- SECTOR DE DOS FOTOGRAFÍAS DESCOMPUESTAS --- */
     .dual-portraits-wrapper {
       display: flex;
       justify-content: center;
@@ -124,7 +124,6 @@
       height: 150px;
       background: #030a03;
       border: 3px solid var(--horror-green);
-      /* Borde desgastado / descompuesto */
       clip-path: polygon(
         0% 2%, 98% 0%, 100% 95%, 92% 100%, 
         85% 94%, 70% 100%, 50% 93%, 30% 98%, 
@@ -135,7 +134,6 @@
       transition: all 0.3s ease;
     }
 
-    /* Sustancia Verde Corrosiva / Goteo en los bordes */
     .portrait-container-corroded::before {
       content: "";
       position: absolute;
@@ -148,7 +146,6 @@
       animation: slimePulse 2s ease-in-out infinite alternate;
     }
 
-    /* Textura de Ruido sobre las Fotos */
     .portrait-container-corroded::after {
       content: "";
       position: absolute;
@@ -164,8 +161,8 @@
 
     .portrait-container-corroded:hover {
       transform: scale(1.05) rotate(-1deg);
-      border-color: var(--horror-red);
-      box-shadow: var(--glow-red);
+      border-color: var(--horror-blue);
+      box-shadow: var(--glow-blue);
       filter: drop-shadow(0 0 12px var(--horror-green));
     }
 
@@ -207,10 +204,10 @@
     .alias {
       font-family: 'VT323', monospace;
       font-size: 1.6rem;
-      color: var(--horror-red);
+      color: var(--horror-blue);
       letter-spacing: 0.15em;
       margin-bottom: 1.5rem;
-      text-shadow: var(--glow-red);
+      text-shadow: var(--glow-blue);
     }
 
     .tagline {
@@ -219,10 +216,10 @@
       max-width: 520px;
       margin: 0 auto;
       letter-spacing: 0.05em;
-      border-left: 3px solid var(--horror-red);
+      border-left: 3px solid var(--horror-blue);
       padding-left: 1rem;
       text-align: left;
-      background: rgba(10, 0, 0, 0.7);
+      background: rgba(0, 5, 10, 0.7);
       backdrop-filter: blur(4px);
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
@@ -247,7 +244,7 @@
       text-transform: uppercase;
       transition: all 0.2s ease;
       padding: 0.4rem 0.8rem;
-      background: rgba(20, 0, 0, 0.6);
+      background: rgba(0, 10, 20, 0.6);
       border: 1px solid var(--line);
       backdrop-filter: blur(4px);
       border-radius: 4px;
@@ -255,8 +252,8 @@
 
     nav a:hover, nav a:active {
       color: #000;
-      background: var(--horror-red);
-      box-shadow: var(--glow-red);
+      background: var(--horror-blue);
+      box-shadow: var(--glow-blue);
       font-weight: bold;
     }
 
@@ -271,11 +268,11 @@
       font-weight: 400;
       font-size: 2.2rem;
       letter-spacing: 0.1em;
-      color: var(--horror-red);
+      color: var(--horror-blue);
       margin-bottom: 2rem;
       text-align: center;
       text-transform: uppercase;
-      text-shadow: var(--glow-red);
+      text-shadow: var(--glow-blue);
     }
 
     section h2::before {
@@ -295,16 +292,17 @@
       border: 1px solid var(--line);
       backdrop-filter: blur(6px);
       border-radius: 4px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.9), inset 0 0 15px rgba(255, 0, 0, 0.15);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.9), inset 0 0 15px rgba(0, 85, 255, 0.15);
     }
 
-    /* --- CINTAS VHS CON MOVIMIENTO DE ARRIBA A ABAJO --- */
+    /* --- CINTAS VHS GIRATORIAS (ROTACIÓN EN CÍRCULO EN 360°) --- */
     .vhs-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 2rem;
       max-width: 900px;
       margin: 0 auto;
+      perspective: 1000px; /* Profundidad para la rotación */
     }
 
     .vhs-tape {
@@ -314,21 +312,24 @@
       height: 140px;
       padding: 1rem;
       background: linear-gradient(135deg, #111 0%, #050505 100%);
-      border: 2px solid var(--horror-red);
-      border-left: 6px solid var(--horror-dark-red);
+      border: 2px solid var(--horror-blue);
+      border-left: 6px solid var(--horror-dark-blue);
       color: var(--horror-white);
       text-decoration: none;
-      box-shadow: var(--glow-red), 0 5px 15px rgba(0,0,0,0.8);
+      box-shadow: var(--glow-blue), 0 5px 15px rgba(0,0,0,0.8);
       position: relative;
       overflow: hidden;
       border-radius: 3px;
-      animation: vhsFloat 3.5s ease-in-out infinite alternate;
-      transition: all 0.3s ease;
+      
+      /* Animación de rotación continua en círculo */
+      animation: vhsRotate 8s linear infinite;
+      transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
     }
 
-    .vhs-tape:nth-child(2n) { animation-duration: 4.2s; animation-delay: -0.8s; }
-    .vhs-tape:nth-child(3n) { animation-duration: 3.8s; animation-delay: -1.5s; }
-    .vhs-tape:nth-child(4n) { animation-duration: 4.5s; animation-delay: -0.3s; }
+    /* Variación en velocidad y dirección para un aspecto caótico */
+    .vhs-tape:nth-child(2n) { animation-duration: 10s; animation-direction: reverse; }
+    .vhs-tape:nth-child(3n) { animation-duration: 6.5s; }
+    .vhs-tape:nth-child(4n) { animation-duration: 12s; animation-direction: reverse; }
 
     .vhs-tape::before {
       content: "";
@@ -337,17 +338,16 @@
       right: 10px;
       width: 40px;
       height: 12px;
-      background: rgba(255, 34, 34, 0.2);
-      border: 1px solid var(--horror-red);
+      background: rgba(0, 85, 255, 0.2);
+      border: 1px solid var(--horror-blue);
       border-radius: 2px;
     }
 
     .vhs-tape:hover {
-      animation-play-state: paused;
-      transform: translateY(-8px) scale(1.03);
+      animation-play-state: paused; /* Se pausa al pasar el cursor para poder hacer click */
       border-color: var(--horror-green);
       box-shadow: var(--glow-green), 0 8px 20px rgba(0,255,102,0.2);
-      background: #18080c;
+      background: #080c18;
     }
 
     .vhs-header {
@@ -355,9 +355,9 @@
       justify-content: space-between;
       align-items: center;
       font-size: 0.85rem;
-      color: var(--horror-red);
+      color: var(--horror-blue);
       letter-spacing: 0.1em;
-      border-bottom: 1px dashed rgba(255, 34, 34, 0.3);
+      border-bottom: 1px dashed rgba(0, 85, 255, 0.3);
       padding-bottom: 0.3rem;
     }
 
@@ -382,7 +382,7 @@
     }
 
     .vhs-btn {
-      color: var(--horror-red);
+      color: var(--horror-blue);
       font-weight: bold;
       letter-spacing: 0.1em;
     }
@@ -391,7 +391,7 @@
       color: var(--horror-green);
     }
 
-    /* FORMULARIO CON ARCHIVOS ADJUNTOS */
+    /* FORMULARIO */
     .comment-form {
       max-width: 560px;
       margin: 0 auto;
@@ -411,9 +411,9 @@
       font-size: 1.1rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--horror-red);
+      color: var(--horror-blue);
       margin-bottom: 0.4rem;
-      text-shadow: var(--glow-red);
+      text-shadow: var(--glow-blue);
     }
 
     .comment-form input, .comment-form textarea {
@@ -431,12 +431,12 @@
     .comment-form input[type="file"] {
       padding: 0.5rem;
       cursor: pointer;
-      background: rgba(20, 0, 0, 0.5);
+      background: rgba(0, 10, 20, 0.5);
     }
 
     .comment-form input[type="file"]::file-selector-button {
-      background: var(--horror-dark-red);
-      border: 1px solid var(--horror-red);
+      background: var(--horror-dark-blue);
+      border: 1px solid var(--horror-blue);
       color: var(--horror-white);
       font-family: 'VT323', monospace;
       padding: 0.3rem 0.8rem;
@@ -446,7 +446,7 @@
     }
 
     .comment-form input[type="file"]::file-selector-button:hover {
-      background: var(--horror-red);
+      background: var(--horror-blue);
       color: #000;
     }
 
@@ -457,8 +457,8 @@
 
     .comment-form button {
       align-self: flex-start;
-      background: var(--horror-dark-red);
-      border: 1px solid var(--horror-red);
+      background: var(--horror-dark-blue);
+      border: 1px solid var(--horror-blue);
       color: var(--horror-white);
       font-family: 'Rubik Glitch', cursive;
       font-size: 1.1rem;
@@ -468,24 +468,24 @@
       cursor: pointer;
       border-radius: 2px;
       transition: all 0.3s ease;
-      box-shadow: var(--glow-red);
+      box-shadow: var(--glow-blue);
     }
 
     .comment-form button:hover {
-      background: var(--horror-red);
+      background: var(--horror-blue);
       color: #000;
-      box-shadow: var(--glow-red);
+      box-shadow: var(--glow-blue);
     }
 
     /* ANIMACIONES */
+    @keyframes vhsRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
     @keyframes slimePulse {
       0% { opacity: 0.4; }
       100% { opacity: 0.9; }
-    }
-
-    @keyframes vhsFloat {
-      0% { transform: translateY(-6px); }
-      100% { transform: translateY(6px); }
     }
 
     @keyframes staticNoise {
@@ -511,9 +511,9 @@
     }
 
     @keyframes horrorGlitch {
-      0% { text-shadow: 2px 0 0 var(--horror-red), -2px 0 0 var(--horror-green); }
-      50% { text-shadow: -3px 0 0 var(--horror-red), 2px 0 0 var(--horror-green); }
-      100% { text-shadow: 2px 0 0 var(--horror-red), -2px 0 0 var(--horror-green); }
+      0% { text-shadow: 2px 0 0 var(--horror-blue), -2px 0 0 var(--horror-green); }
+      50% { text-shadow: -3px 0 0 var(--horror-blue), 2px 0 0 var(--horror-green); }
+      100% { text-shadow: 2px 0 0 var(--horror-blue), -2px 0 0 var(--horror-green); }
     }
 
     /* OTROS COMPONENTES */
@@ -525,7 +525,7 @@
       overflow: hidden;
       max-width: 100%;
       border: 1px solid var(--line);
-      box-shadow: var(--glow-red);
+      box-shadow: var(--glow-blue);
       cursor: pointer;
       border-radius: 4px;
     }
@@ -544,7 +544,7 @@
       width: 100%; height: 100%;
       object-fit: cover;
       opacity: 0; z-index: 1;
-      filter: contrast(2) brightness(0.6) saturate(3) drop-shadow(0 0 20px var(--horror-red));
+      filter: contrast(2) brightness(0.6) saturate(3) drop-shadow(0 0 20px var(--horror-blue));
     }
 
     .gt-image-container:hover .gt-img-normal { opacity: 0; }
@@ -569,8 +569,8 @@
       width: 100%;
       max-width: 800px;
       aspect-ratio: 16 / 9;
-      border: 2px solid var(--horror-red);
-      box-shadow: var(--glow-red);
+      border: 2px solid var(--horror-blue);
+      box-shadow: var(--glow-blue);
       background: #000;
     }
 
@@ -581,11 +581,11 @@
       top: -40px; right: 0;
       background: transparent;
       border: none;
-      color: var(--horror-red);
+      color: var(--horror-blue);
       font-family: 'Rubik Glitch', cursive;
       font-size: 1.5rem;
       cursor: pointer;
-      text-shadow: var(--glow-red);
+      text-shadow: var(--glow-blue);
     }
 
     .contact-block {
@@ -601,12 +601,12 @@
     .contact-email {
       font-family: 'VT323', monospace;
       font-size: 1.5rem;
-      color: var(--horror-red);
+      color: var(--horror-blue);
       text-decoration: none;
       word-break: break-word;
-      border-bottom: 1px solid var(--horror-red);
+      border-bottom: 1px solid var(--horror-blue);
       transition: all 0.3s ease;
-      text-shadow: var(--glow-red);
+      text-shadow: var(--glow-blue);
     }
 
     .contact-email:hover {
@@ -635,8 +635,8 @@
     }
 
     .socials a:hover {
-      color: var(--horror-red);
-      text-shadow: var(--glow-red);
+      color: var(--horror-blue);
+      text-shadow: var(--glow-blue);
     }
 
     footer {
@@ -655,19 +655,19 @@
       height: 45px;
       border-radius: 50%;
       background: #000;
-      border: 1px solid var(--horror-red);
-      color: var(--horror-red);
+      border: 1px solid var(--horror-blue);
+      color: var(--horror-blue);
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
       z-index: 1001;
-      box-shadow: var(--glow-red);
+      box-shadow: var(--glow-blue);
       transition: all 0.3s ease;
     }
 
     .btn-circular:hover {
-      background: var(--horror-red);
+      background: var(--horror-blue);
       color: #000;
       transform: scale(1.15);
     }
@@ -679,33 +679,32 @@
   <header>
     <div class="container">
       
-      <!-- CONTENEDOR CON DOS FOTOS DESCOMPUESTAS / CORROÍDAS POR SUSTANCIA VERDE -->
       <div class="dual-portraits-wrapper">
         <!-- FOTO 1 -->
         <a href="#" target="_blank" class="portrait-link">
           <div class="portrait-container-corroded">
-            <img src="9.png" alt="Dolphin Doe" class="portrait">
-            <img src="n.png" alt="Dolphin Doe Alt" class="portrait portrait-alt">
+            <img src="9.png" alt="XXXXX" class="portrait">
+            <img src="n.png" alt="XXXXX" class="portrait portrait-alt">
           </div>
         </a>
 
         <!-- FOTO 2 -->
         <a href="#" target="_blank" class="portrait-link">
           <div class="portrait-container-corroded">
-            <img src="9_2.png" alt="Lezly Vuh" class="portrait">
-            <img src="n_2.png" alt="Lezly Vuh Alt" class="portrait portrait-alt">
+            <img src="9_2.png" alt="XXXXX" class="portrait">
+            <img src="n_2.png" alt="XXXXX" class="portrait portrait-alt">
           </div>
         </a>
       </div>
 
-      <h1>Dolphin Doe & Lezly Vuh</h1>
-      <p class="alias">// PROYECTO x</p>
-      <p class="tagline">xxxxxxxx</p>
+      <h1>XXXXX XXX & XXXXX XXX</h1>
+      <p class="alias">// XXXXX XXXXXXX</p>
+      <p class="tagline">XXXXX XXXX XX XXXXXX XXXXXXXXXXX O XXXX DEL XXXXXXXX.</p>
       <nav>
-        <a href="#sobre">Sobre nosotrxs</a>
-        <a href="#obras">Obras</a>
-        <a href="#comentarios">xxx</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#sobre">XXXXX XX</a>
+        <a href="#obras">XXXXX</a>
+        <a href="#comentarios">XXXXXXXXXXX</a>
+        <a href="#contacto">XXXXXXXX</a>
       </nav>
     </div>
   </header>
@@ -713,111 +712,111 @@
   <main>
     <section id="sobre">
       <div class="container">
-        <h2>Sobre mí</h2>
+        <h2>XXXXX XX</h2>
         <div class="about-text">
-          <p>xxx biografía o manifiesto xxxx.</p>
+          <p>XXXXXX XXXX XX XXXXXXXXX O XXXXXXXXXX XXXXXXXX.</p>
         </div>
       </div>
     </section>
 
     <section id="obras">
       <div class="container">
-        <h2>Archivosxxxx</h2>
+        <h2>XXXXXXXX XXX</h2>
         
         <div class="vhs-grid">
           <a href="#" class="vhs-tape" target="_blank">
             <div class="vhs-header">
-              <span>CASSETTE 01</span>
+              <span>XXXXXXXX 01</span>
               <span>[PDF]</span>
             </div>
-            <h3 class="vhs-title">Obra 1</h3>
+            <h3 class="vhs-title">XXXX 1</h3>
             <div class="vhs-footer">
               <span>NTSC / STEREO</span>
-              <span class="vhs-btn">ABRIR &rarr;</span>
+              <span class="vhs-btn">XXXXX &rarr;</span>
             </div>
           </a>
 
           <a href="#" class="vhs-tape" target="_blank">
             <div class="vhs-header">
-              <span>CASSETTE 02</span>
+              <span>XXXXXXXX 02</span>
               <span>[PDF]</span>
             </div>
-            <h3 class="vhs-title">Obra 2</h3>
+            <h3 class="vhs-title">XXXX 2</h3>
             <div class="vhs-footer">
               <span>NTSC / STEREO</span>
-              <span class="vhs-btn">ABRIR &rarr;</span>
+              <span class="vhs-btn">XXXXX &rarr;</span>
             </div>
           </a>
 
           <a href="#" class="vhs-tape" target="_blank">
             <div class="vhs-header">
-              <span>CASSETTE 03</span>
+              <span>XXXXXXXX 03</span>
               <span>[PDF]</span>
             </div>
-            <h3 class="vhs-title">Obra 3</h3>
+            <h3 class="vhs-title">XXXX 3</h3>
             <div class="vhs-footer">
               <span>NTSC / STEREO</span>
-              <span class="vhs-btn">ABRIR &rarr;</span>
+              <span class="vhs-btn">XXXXX &rarr;</span>
             </div>
           </a>
 
           <a href="#" class="vhs-tape" target="_blank">
             <div class="vhs-header">
-              <span>CASSETTE 04</span>
+              <span>XXXXXXXX 04</span>
               <span>[PDF]</span>
             </div>
-            <h3 class="vhs-title">Obra 4</h3>
+            <h3 class="vhs-title">XXXX 4</h3>
             <div class="vhs-footer">
               <span>NTSC / STEREO</span>
-              <span class="vhs-btn">ABRIR &rarr;</span>
+              <span class="vhs-btn">XXXXX &rarr;</span>
             </div>
           </a>
 
           <a href="#" class="vhs-tape" target="_blank">
             <div class="vhs-header">
-              <span>CASSETTE 05</span>
+              <span>XXXXXXXX 05</span>
               <span>[PDF]</span>
             </div>
-            <h3 class="vhs-title">Obra 5</h3>
+            <h3 class="vhs-title">XXXX 5</h3>
             <div class="vhs-footer">
               <span>NTSC / STEREO</span>
-              <span class="vhs-btn">ABRIR &rarr;</span>
+              <span class="vhs-btn">XXXXX &rarr;</span>
             </div>
           </a>
 
           <a href="#" class="vhs-tape" target="_blank">
             <div class="vhs-header">
-              <span>CASSETTE 06</span>
+              <span>XXXXXXXX 06</span>
               <span>[PDF]</span>
             </div>
-            <h3 class="vhs-title">Obra 6</h3>
+            <h3 class="vhs-title">XXXX 6</h3>
             <div class="vhs-footer">
               <span>NTSC / STEREO</span>
-              <span class="vhs-btn">ABRIR &rarr;</span>
+              <span class="vhs-btn">XXXXX &rarr;</span>
             </div>
           </a>
 
           <a href="#" class="vhs-tape" target="_blank">
             <div class="vhs-header">
-              <span>CASSETTE 07</span>
+              <span>XXXXXXXX 07</span>
               <span>[PDF]</span>
             </div>
-            <h3 class="vhs-title">Obra 7</h3>
+            <h3 class="vhs-title">XXXX 7</h3>
             <div class="vhs-footer">
               <span>NTSC / STEREO</span>
-              <span class="vhs-btn">ABRIR &rarr;</span>
+              <span class="vhs-btn">XXXXX &rarr;</span>
             </div>
           </a>
 
           <a href="#" class="vhs-tape" target="_blank">
             <div class="vhs-header">
-              <span>CASSETTE 08</span>
+              <span>XXXXXXXX 08</span>
               <span>[PDF]</span>
             </div>
-            <h3 class="vhs-title">Obra 8</h3>
+            <h3 class="vhs-title">XXXX 8</h3>
             <div class="vhs-footer">
               <span>NTSC / STEREO</span>
-              <span class="vhs-btn">ABRIR &rarr;</span>
+              <span class="vhs-btn">XXXXX &rarr;</span>
             </div>
           </a>
         </div>
@@ -825,51 +824,51 @@
       </div>
     </section>
 
-    <section id="comentxxxs">
+    <section id="comentarios">
       <div class="container">
-        <h2>Comentarios y Archivos</h2>
+        <h2>XXXXXXXXXXX Y XXXXXXXX</h2>
         <form class="comment-form" action="https://formsubmit.co/tu-email@ejemplo.com" method="POST" enctype="multipart/form-data">
-          <input type="hidden" name="_subject" value="Nuevo comentario enviado con archivo">
+          <input type="hidden" name="_subject" value="XXXXX XXXXXXXXXX XXXXXXX XXX XXXXXXX">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
           <input type="text" name="_honey" style="display:none">
 
           <div>
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+            <label for="nombre">XXXXXX</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="TU XXXXXX">
           </div>
           <div>
-            <label for="email">Correo electrónico</label>
+            <label for="email">XXXXXX XXXXXXXXXXX</label>
             <input type="email" id="email" name="email" required placeholder="tu@correo.com">
           </div>
           <div>
-            <label for="mensaje">Comentario</label>
-            <textarea id="mensaje" name="mensaje" required placeholder="Escribe aquí tu comentario..."></textarea>
+            <label for="mensaje">XXXXXXXXXX</label>
+            <textarea id="mensaje" name="mensaje" required placeholder="XXXXXX AQUÍ TU XXXXXXXXXX..."></textarea>
           </div>
           
           <div>
-            <label for="archivo">Adjuntar Archivo</label>
+            <label for="archivo">XXXXXXXX XXXXXXX</label>
             <input type="file" id="archivo" name="attachment" accept="image/*,.pdf,.doc,.docx,.txt">
           </div>
 
-          <button type="submit">Enviar comentario</button>
+          <button type="submit">XXXXXX XXXXXXXXXX</button>
         </form>
       </div>
     </section>
 
     <section id="contacto">
       <div class="container contact-block">
-        <h2>Contacto</h2>
-        <p>Para colaboraciones o consultas.</p>
+        <h2>XXXXXXXX</h2>
+        <p>XXXX XXXXXXXXXXXXXX O XXXXXXXXX.</p>
         <a href="mailto:tu-correo@ejemplo.com" class="contact-email">
           tu-correo@ejemplo.com
         </a>
         <div class="socials">
-          <a href="#" target="_blank" rel="noopener">Instagram</a>
-          <a href="#" target="_blank" rel="noopener">Facebook</a>
+          <a href="#" target="_blank" rel="noopener">XXXXXXXXX</a>
+          <a href="#" target="_blank" rel="noopener">XXXXXXXX</a>
           <a href="#" target="_blank" rel="noopener">X</a>
-          <a href="#" target="_blank" rel="noopener">Threads</a>
-          <a href="#" target="_blank" rel="noopener">Tumblr</a>
+          <a href="#" target="_blank" rel="noopener">XXXXXXX</a>
+          <a href="#" target="_blank" rel="noopener">XXXXXX</a>
         </div>
       </div>
     </section>
@@ -877,27 +876,27 @@
 
   <footer>
     <div class="container">
-      <p>© Dolphin Doe & Lezly Vuh</p>
+      <p>© XXXXX XXX & XXXXX XXX</p>
     </div>
   </footer>
 
   <div class="bottom-image-container">
     <div class="container">
       <div class="gt-image-container" onclick="openVideo()">
-        <img src="gt.png" alt="Imagenxxx" class="gt-img-normal">
-        <img src="gt_sangriento.png" alt="Imagen alternativa" class="gt-img-scary">
+        <img src="gt.png" alt="XXXXXX" class="gt-img-normal">
+        <img src="gt_sangriento.png" alt="XXXXXX" class="gt-img-scary">
       </div>
     </div>
   </div>
 
   <div id="videoModal" class="video-modal" onclick="closeVideoOnBackdrop(event)">
     <div class="video-modal-content">
-      <button class="close-video-btn" onclick="closeVideo()">&times; CERRAR</button>
+      <button class="close-video-btn" onclick="closeVideo()">&times; XXXXXX</button>
       <iframe id="youtubeIframe" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
   </div>
 
-  <a href="#" target="_blank" rel="noopener" class="btn-circular" title="Ver en YouTube">
+  <a href="#" target="_blank" rel="noopener" class="btn-circular" title="XXXX XX XXXXXXX">
     <svg viewBox="0 0 24 24">
       <path d="M8 5v14l11-7z"/>
     </svg>
