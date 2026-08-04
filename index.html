@@ -302,19 +302,70 @@
       opacity: 0.8;
     }
 
-    .about-text {
-      font-size: 0.75rem;
-      line-height: 2;
-      color: var(--ink);
+    /* --- ESTILOS PARA LA PESTAÑA DESPLEGABLE (SOBRE NOSOTROS) --- */
+    .about-details {
       max-width: 680px;
       margin: 0 auto;
-      text-align: justify;
       background: var(--paper);
-      padding: 2.5rem;
       border: 1px solid var(--line);
       backdrop-filter: blur(12px);
       border-radius: 4px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .about-details[open] {
+      border-color: var(--horror-accent);
+      box-shadow: var(--glow-accent), 0 10px 30px rgba(0, 0, 0, 0.7);
+    }
+
+    .about-summary {
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      color: var(--horror-accent);
+      text-transform: uppercase;
+      padding: 1.5rem 2rem;
+      cursor: pointer;
+      list-style: none; /* Oculta la flecha por defecto */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      transition: background 0.3s ease, color 0.3s ease;
+      text-shadow: 
+        -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000,
+        var(--glow-accent);
+    }
+
+    .about-summary::-webkit-details-marker {
+      display: none; /* Oculta la flecha en navegadores basados en Webkit */
+    }
+
+    .about-summary::after {
+      content: "[ + ]";
+      font-size: 0.8rem;
+      color: var(--ink-heading);
+      transition: transform 0.3s ease;
+    }
+
+    .about-details[open] .about-summary::after {
+      content: "[ − ]";
+      color: var(--horror-accent);
+    }
+
+    .about-summary:hover {
+      background: rgba(156, 176, 201, 0.1);
+      color: var(--ink-heading);
+    }
+
+    .about-text {
+      font-size: 0.75rem;
+      line-height: 2;
+      color: var(--ink);
+      padding: 0 2.5rem 2.5rem 2.5rem;
+      text-align: justify;
+      border-top: 1px solid var(--line);
     }
 
     /* --- IMÁGENES VHS CON MOVIMIENTO VERTICAL Y EFECTO HARRIS --- */
@@ -699,7 +750,7 @@
   <header>
     <div class="container">
       <div class="dual-portraits-wrapper">
-        <!-- FOTO 1 (b.jpg intercambiada) -->
+        <!-- FOTO 1 -->
         <a href="#" target="_blank" class="portrait-link">
           <div class="portrait-container-corroded">
             <img src="b.jpg" alt="Foto principal B" class="portrait">
@@ -707,7 +758,7 @@
           </div>
         </a>
 
-        <!-- FOTO 2 (a.jpg intercambiada) -->
+        <!-- FOTO 2 -->
         <a href="#" target="_blank" class="portrait-link">
           <div class="portrait-container-corroded">
             <img src="a.jpg" alt="Foto principal A" class="portrait">
@@ -731,10 +782,13 @@
   <main>
     <section id="sobre">
       <div class="container">
-        <h2>SOBRE NOSOTROS</h2>
-        <div class="about-text">
-          <p><strong>Dolphin Doe & Lezly Vuh</strong> (San Fierro, 19∞). Nacieron cerca de la playa. Son Cazadores de críptidos & openmics. Sobrevivieron al fin del mundo conociéndose por ahí del 2013 viendo creepypastas de Youtube en el ciber de por la acapulqueña. Desde 2018 han contribuido a la conservación & aumento de las cadenas de correos electrónicos malditos, lost media & otras invocaciones finiharias, juegan baraja española & siempre han tenido suerte en los tazos. En 2020, durante la pandemia, se reencontraron en el taller virtual del poeta Sánchez Olivera. Desde entonces se cuelan a tu casa, fiestas privadas & eventos culturales con videocámara en mano. Actualmente tienen más o menos 24 años & siguen en las andadas.</p>
-        </div>
+        <!-- SECCIÓN SOBRE NOSOTROS EN PESTAÑA DESPLEGABLE -->
+        <details class="about-details">
+          <summary class="about-summary">✦ SOBRE NOSOTROS</summary>
+          <div class="about-text">
+            <p><strong>Dolphin Doe & Lezly Vuh</strong> (San Fierro, 19∞). Nacieron cerca de la playa. Son Cazadores de críptidos & openmics. Sobrevivieron al fin del mundo conociéndose por ahí del 2013 viendo creepypastas de Youtube en el ciber de por la acapulqueña. Desde 2018 han contribuido a la conservación & aumento de las cadenas de correos electrónicos malditos, lost media & otras invocaciones finiharias, juegan baraja española & siempre han tenido suerte en los tazos. En 2020, durante la pandemia, se reencontraron en el taller virtual del poeta Sánchez Olivera. Desde entonces se cuelan a tu casa, fiestas privadas & eventos culturales con videocámara en mano. Actualmente tienen más o menos 24 años & siguen en las andadas.</p>
+          </div>
+        </details>
       </div>
     </section>
 
