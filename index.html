@@ -985,9 +985,91 @@
     </svg>
   </a>
 
+  <!-- SCREAMER: aparece 40 segundos después de abrir la página -->
+  <div id="screamer" aria-hidden="true">
+    <img src="gt_sangriento.png" alt="">
+  </div>
+
+  <style>
+    #screamer {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: #000;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    #screamer.active { display: flex; }
+    #screamer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      animation: screamerFlash 0.12s steps(2) infinite;
+    }
+    @keyframes screamerFlash {
+      0%, 100% { transform: scale(1); filter: contrast(1.8) brightness(1); }
+      50% { transform: scale(1.06); filter: contrast(2.5) brightness(1.3); }
+    }
+  </style>
+
   <script>
+    // Reloj REC: comienza en 03:33:00 y avanza en tiempo real mientras la página está abierta.
+    const recStartSeconds = (3 * 60 * 60) + (33 * 60);
+    const recStartTime = Date.now();
+
+    function updateRecClock() {
+      const elapsed = Math.floor((Date.now() - recStartTime) / 1000);
+      const total = recStartSeconds + elapsed;
+      const hours = Math.floor(total / 3600) % 24;
+      const minutes = Math.floor((total % 3600) / 60);
+      const seconds = total % 60;
+
+      const timeText =
+        String(hours).padStart(2, '0') + ':' +
+        String(minutes).padStart(2, '0') + ':' +
+        String(seconds).padStart(2, '0');
+
+      const styleSheet = [...document.styleSheets].find(sheet => {
+        try {
+          return [...sheet.cssRules].some(rule =>
+            rule.selectorText === 'header::before'
+          );
+        } catch (e) {
+          return false;
+        }
+      });
+
+      if (styleSheet) {
+        const rule = [...styleSheet.cssRules].find(
+          rule => rule.selectorText === 'header::before'
+        );
+        if (rule) {
+          rule.style.content = '"● REC  [' + timeText + ']"';
+        }
+      }
+    }
+
+    updateRecClock();
+    setInterval(updateRecClock, 1000);
+
     const videoModal = document.getElementById('videoModal');
     const iframe = document.getElementById('youtubeIframe');
+    const screamer = document.getElementById('screamer');
+
+    // Activa el screamer exactamente 40 segundos después de abrir la página.
+    setTimeout(function() {
+      screamer.classList.add('active');
+      screamer.setAttribute('aria-hidden', 'false');
+    }, 40000);
+
+    // Permite cerrar el screamer al hacer clic sobre él.
+    screamer.addEventListener('click', function() {
+      screamer.classList.remove('active');
+      screamer.setAttribute('aria-hidden', 'true');
+    });
+
 
     function openVideo() {
       iframe.src = "https://www.youtube.com/embed/aDurnlQu6Ak?autoplay=1";
